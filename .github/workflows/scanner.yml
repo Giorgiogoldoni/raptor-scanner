@@ -1,0 +1,41 @@
+name: RAPTOR Scanner — ETF Universe
+
+on:
+  schedule:
+    - cron: '0 6 * * 1-5'
+    - cron: '0 10 * * 1-5'
+    - cron: '0 14 * * 1-5'
+    - cron: '0 18 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-scanner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests numpy
+
+      - name: Run scanner engine
+        run: python fetch_and_compute.py
+
+      - name: Commit and push signals.json
+        run: |
+          git config user.name "RAPTOR Bot"
+          git config user.email "raptor-bot@users.noreply.github.com"
+          git add data/signals.json logs/run.log
+          git diff --cached --quiet || git commit -m "RAPTOR update $(date -u '+%Y-%m-%d %H:%M') UTC"
+          git push
