@@ -2,28 +2,28 @@ name: ETF Scanner — Run & Publish
 
 on:
   schedule:
-    # Ogni giorno alle 18:30 UTC (20:30 ora italiana, dopo chiusura mercati EU)
     - cron: '30 18 * * 1-5'
-    # Ogni giorno alle 22:00 UTC (dopo chiusura USA)
     - cron: '0 22 * * 1-5'
-  workflow_dispatch:   # Permette lancio manuale dal tab Actions
+  workflow_dispatch:
 
 permissions:
-  contents: write      # Necessario per fare commit su signals.json
+  contents: write
 
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
       - name: Setup Python
         uses: actions/setup-python@v5
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         with:
           python-version: '3.11'
 
@@ -43,6 +43,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/signals.json
-          # Commit solo se il file è cambiato
           git diff --staged --quiet || git commit -m "🤖 Scanner update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git push
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
