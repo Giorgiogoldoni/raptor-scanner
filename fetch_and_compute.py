@@ -19,9 +19,9 @@ import numpy as np
 CONFIG = {
     "history_days": 120,
     "min_candles": 60,
-    "request_delay": 0.12,
-    "max_retries": 3,
-    "retry_delay": 2.0,
+    "request_delay": 0.08,
+    "max_retries": 2,
+    "retry_delay": 1.0,
     "cache_dir": "data/cache",
     "output_file": "data/signals.json",
     "log_file": "logs/run.log",
