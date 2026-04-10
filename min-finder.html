@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAPTOR MIN FINDER</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap');
+:root{
+  --bg:#070A0F;--bg2:#0D1117;--bg3:#111820;
+  --border:#1E2A38;--border2:#243040;
+  --accent:#00D4FF;--accent2:#FF6B35;--accent3:#7FFF00;
+  --text:#C8D8E8;--text-dim:#4A6070;--text-bright:#E8F4FF;
+  --danger:#FF3355;--warning:#FFB800;--success:#00FF88;--gold:#FFD700;
+  --c1:#FF3355;--c2:#00D4FF;--c3:#FF6B35;--c4:#7FFF00;--cm:#FFD700;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Space Mono',monospace;font-size:12px;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,212,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(0,212,255,.025) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;z-index:0;}
+.wrap{position:relative;z-index:1;max-width:1600px;margin:0 auto;padding:20px;}
+
+/* HEADER */
+.hdr{display:flex;align-items:center;justify-content:space-between;
+  padding:16px 0;border-bottom:1px solid var(--border);margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+.logo{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--accent);letter-spacing:4px;}
+.logo-sub{font-size:9px;color:var(--text-dim);letter-spacing:3px;margin-top:2px;}
+.hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--text-dim);}
+.dot.ok{background:var(--success);animation:blink 2s infinite;}
+.dot.err{background:var(--danger);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.btn{background:transparent;border:1px solid var(--accent);color:var(--accent);
+  font-family:'Space Mono',monospace;font-size:10px;padding:7px 14px;cursor:pointer;
+  letter-spacing:2px;text-transform:uppercase;transition:all .2s;text-decoration:none;display:inline-block;}
+.btn:hover{background:var(--accent);color:var(--bg);}
+
+/* STATS PILLS */
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.pill{background:var(--bg2);border:1px solid var(--border);padding:10px 14px;flex:1;min-width:120px;}
+.pill-label{font-size:8px;color:var(--text-dim);letter-spacing:2px;margin-bottom:4px;text-transform:uppercase;}
+.pill-val{font-size:20px;font-weight:700;line-height:1;}
+.pill-sub{font-size:9px;color:var(--text-dim);margin-top:2px;}
+
+/* INFO BAR */
+.info-bar{background:var(--bg2);border:1px solid var(--border);padding:10px 16px;
+  margin-bottom:16px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:10px;color:var(--text-dim);}
+.info-bar strong{color:var(--text);}
+
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap;}
+.tab{background:var(--bg2);border:1px solid var(--border);padding:10px 18px;
+  cursor:pointer;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  text-transform:uppercase;transition:all .15s;color:var(--text-dim);}
+.tab:hover{border-color:var(--accent);color:var(--accent);}
+.tab.active{color:var(--bg);font-weight:700;}
+.tab-1.active{background:var(--c1);border-color:var(--c1);}
+.tab-2.active{background:var(--c2);border-color:var(--c2);color:var(--bg)!important;}
+.tab-3.active{background:var(--c3);border-color:var(--c3);}
+.tab-4.active{background:var(--c4);border-color:var(--c4);color:var(--bg)!important;}
+.tab-m.active{background:var(--cm);border-color:var(--cm);color:var(--bg)!important;}
+
+/* LISTA PANEL */
+.list-panel{display:none;}
+.list-panel.active{display:block;}
+.list-header{display:flex;align-items:center;gap:12px;padding:14px 16px;
+  background:var(--bg2);border:1px solid var(--border);margin-bottom:10px;}
+.list-icon{font-size:24px;}
+.list-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;}
+.list-subtitle{font-size:9px;color:var(--text-dim);margin-top:2px;letter-spacing:1px;}
+.list-count{margin-left:auto;font-size:11px;color:var(--text-dim);}
+
+/* FILTRI */
+.filtri{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;}
+.filtri input,.filtri select{
+  background:var(--bg);border:1px solid var(--border);color:var(--text);
+  font-family:'Space Mono',monospace;font-size:10px;padding:6px 10px;outline:none;}
+.filtri input:focus,.filtri select:focus{border-color:var(--accent);}
+.filtri label{font-size:9px;color:var(--text-dim);letter-spacing:1px;}
+
+/* TABELLA */
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:11px;}
+th{font-size:9px;color:var(--text-dim);letter-spacing:1.5px;text-align:left;
+  padding:6px 10px;border-bottom:2px solid var(--border);white-space:nowrap;cursor:pointer;}
+th:hover{color:var(--accent);}
+th.sorted{color:var(--accent);}
+td{padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
+tr:hover td{background:rgba(0,212,255,.03);}
+.ticker{font-weight:700;color:var(--text-bright);font-size:12px;}
+.name{color:var(--text-dim);font-size:10px;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.borsa{font-size:9px;color:var(--text-dim);}
+.price{font-weight:700;color:var(--text-bright);}
+.ret-pos{color:var(--success);}
+.ret-neg{color:var(--danger);}
+.ret-flat{color:var(--text-dim);}
+.dist-bar-wrap{display:flex;align-items:center;gap:6px;}
+.dist-bar-bg{width:60px;height:5px;background:var(--border);border-radius:3px;flex-shrink:0;}
+.dist-bar-fill{height:100%;border-radius:3px;}
+.score-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+.score-high{background:rgba(0,255,136,.1);color:var(--success);border:1px solid rgba(0,255,136,.3);}
+.score-mid{background:rgba(255,184,0,.1);color:var(--warning);border:1px solid rgba(255,184,0,.3);}
+.score-low{background:rgba(255,51,85,.1);color:var(--danger);border:1px solid rgba(255,51,85,.3);}
+.cat-badge{font-size:8px;padding:1px 6px;border:1px solid var(--border);color:var(--text-dim);white-space:nowrap;}
+.multi-badge{font-size:8px;padding:2px 8px;border-radius:20px;background:rgba(255,215,0,.1);color:var(--gold);border:1px solid rgba(255,215,0,.3);}
+
+/* LOADER */
+.loader{text-align:center;padding:60px;color:var(--text-dim);font-size:13px;letter-spacing:3px;}
+.no-data{text-align:center;padding:40px;color:var(--text-dim);font-size:12px;}
+
+/* SOGLIE */
+.soglie-box{background:var(--bg2);border:1px solid var(--border);padding:12px 16px;
+  margin-bottom:16px;display:flex;gap:20px;flex-wrap:wrap;font-size:10px;}
+.soglia-item{color:var(--text-dim);}
+.soglia-item strong{color:var(--accent);}
+
+/* ── DRAWER ── */
+.drawer-overlay{position:fixed;inset:0;background:rgba(7,10,15,0.7);z-index:600;display:none;backdrop-filter:blur(3px);}
+.drawer{position:fixed;top:0;right:0;height:100vh;width:500px;max-width:95vw;
+  background:#0D1117;z-index:700;transform:translateX(100%);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;border-left:1px solid #1E2A38;
+  box-shadow:-8px 0 40px rgba(0,0,0,.6);}
+.drawer.open{transform:translateX(0);}
+.dw-header{background:#070A0F;padding:16px 20px;display:flex;align-items:center;gap:12px;
+  flex-shrink:0;border-bottom:1px solid #1E2A38;}
+.dw-content{flex:1;overflow-y:auto;padding:20px;color:#C8D8E8;font-size:12px;line-height:1.8;}
+.dw-content::-webkit-scrollbar{width:4px;}
+.dw-content::-webkit-scrollbar-thumb{background:#1E2A38;border-radius:2px;}
+.dw-section{font-size:9px;font-weight:700;letter-spacing:2px;color:#4A6070;text-transform:uppercase;
+  margin-bottom:10px;margin-top:22px;padding-bottom:6px;border-bottom:1px solid #1E2A38;}
+.dw-section:first-child{margin-top:0;}
+.dw-card{background:#070A0F;border:1px solid #1E2A38;border-radius:8px;padding:12px 14px;margin-bottom:8px;}
+.dw-card-title{font-size:12px;font-weight:700;margin-bottom:4px;}
+.dw-card-desc{font-size:11px;color:#4A6070;line-height:1.7;}
+.info-btn-dark{width:32px;height:32px;border-radius:4px;background:rgba(0,212,255,.1);
+  color:#00D4FF;font-size:14px;font-weight:700;display:flex;align-items:center;
+  justify-content:center;cursor:pointer;border:1px solid rgba(0,212,255,.2);
+  transition:all .15s;font-family:serif;flex-shrink:0;}
+.info-btn-dark:hover{background:rgba(0,212,255,.2);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div>
+      <div class="logo">RAPTOR MIN FINDER</div>
+      <div class="logo-sub">2.253 ETF · 4 CATEGORIE · SCANSIONE NOTTURNA + LIVE UPDATE</div>
+    </div>
+    <div class="hdr-right">
+      <div style="display:flex;align-items:center;gap:6px;font-size:9px;color:var(--text-dim)">
+        <div class="dot" id="statusDot"></div>
+        <span id="statusTxt">CARICAMENTO...</span>
+      </div>
+      <span id="lastUpd" style="font-size:9px;color:var(--text-dim)">—</span>
+      <a class="btn" href="index.html">← SCANNER</a>
+      <a class="btn" href="https://giorgiogoldoni.github.io/trader/">← HUB</a>
+      <div class="info-btn-dark" onclick="openDrawer()" title="Metodologia">ℹ</div>
+    </div>
+  </div>
+
+  <div id="loaderMsg" class="loader">Caricamento Min Finder RAPTOR...</div>
+
+  <div id="mainContent" style="display:none">
+
+    <!-- PILLS -->
+    <div class="pills" id="pillsBar"></div>
+
+    <!-- INFO BAR -->
+    <div class="info-bar" id="infoBar">—</div>
+
+    <!-- SOGLIE -->
+    <div class="soglie-box" id="soglieBox"></div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab tab-1 active" onclick="showTab('1')">📉 Minimi Storici <span id="cnt1"></span></div>
+      <div class="tab tab-2" onclick="showTab('2')">🔄 Pullback Trend <span id="cnt2"></span></div>
+      <div class="tab tab-3" onclick="showTab('3')">🔥 Compressione Vol <span id="cnt3"></span></div>
+      <div class="tab tab-4" onclick="showTab('4')">📊 Minimi Relativi <span id="cnt4"></span></div>
+      <div class="tab tab-m" onclick="showTab('m')">⭐ Master 2+ <span id="cntM"></span></div>
+    </div>
+
+    <!-- LISTA 1 — Minimi Storici -->
+    <div class="list-panel active" id="panel-1">
+      <div class="list-header" style="border-left:4px solid var(--c1)">
+        <div class="list-icon">📉</div>
+        <div>
+          <div class="list-title" style="color:var(--c1)">Minimi Storici</div>
+          <div class="list-subtitle">ETF entro il 5% dal minimo delle ultime 52 settimane · opportunità o trappola?</div>
+        </div>
+        <div class="list-count" id="hdr-cnt1">—</div>
+      </div>
+      <div class="filtri">
+        <label>CERCA</label><input type="text" id="filter1" placeholder="ticker o nome..." oninput="renderTable('1')">
+        <label>BORSA</label><select id="borsa1" onchange="renderTable('1')"><option value="">Tutte</option></select>
+        <label>ORDINA</label><select id="sort1" onchange="renderTable('1')">
+          <option value="dist_52w_low">Distanza 52w low ↑</option>
+          <option value="score_min_storico">Score ↓</option>
+          <option value="ret_1w">Ritorno 1W</option>
+        </select>
+      </div>
+      <div class="tbl-wrap"><table><thead id="head1"></thead><tbody id="body1"></tbody></table></div>
+    </div>
+
+    <!-- LISTA 2 — Pullback -->
+    <div class="list-panel" id="panel-2">
+      <div class="list-header" style="border-left:4px solid var(--c2)">
+        <div class="list-icon">🔄</div>
+        <div>
+          <div class="list-title" style="color:var(--c2)">Pullback in Trend</div>
+          <div class="list-subtitle">ETF in trend rialzista (MA200+) con calo 5-15% dal massimo 4 settimane · ingresso su supporto</div>
+        </div>
+        <div class="list-count" id="hdr-cnt2">—</div>
+      </div>
+      <div class="filtri">
+        <label>CERCA</label><input type="text" id="filter2" placeholder="ticker o nome..." oninput="renderTable('2')">
+        <label>BORSA</label><select id="borsa2" onchange="renderTable('2')"><option value="">Tutte</option></select>
+        <label>ORDINA</label><select id="sort2" onchange="renderTable('2')">
+          <option value="score_pullback">Score ↓</option>
+          <option value="drawdown_4w">Drawdown 4W</option>
+          <option value="ret_1w">Ritorno 1W</option>
+        </select>
+      </div>
+      <div class="tbl-wrap"><table><thead id="head2"></thead><tbody id="body2"></tbody></table></div>
+    </div>
+
+    <!-- LISTA 3 — Compressione -->
+    <div class="list-panel" id="panel-3">
+      <div class="list-header" style="border-left:4px solid var(--c3)">
+        <div class="list-icon">🔥</div>
+        <div>
+          <div class="list-title" style="color:var(--c3)">Compressione Volatilità</div>
+          <div class="list-subtitle">ATR sceso >30% vs media 3 mesi · molla carica, breakout imminente</div>
+        </div>
+        <div class="list-count" id="hdr-cnt3">—</div>
+      </div>
+      <div class="filtri">
+        <label>CERCA</label><input type="text" id="filter3" placeholder="ticker o nome..." oninput="renderTable('3')">
+        <label>BORSA</label><select id="borsa3" onchange="renderTable('3')"><option value="">Tutte</option></select>
+        <label>ORDINA</label><select id="sort3" onchange="renderTable('3')">
+          <option value="score_compressione">Score ↓</option>
+          <option value="atr_ratio">ATR Ratio ↑</option>
+          <option value="ret_3m">Ritorno 3M</option>
+        </select>
+      </div>
+      <div class="tbl-wrap"><table><thead id="head3"></thead><tbody id="body3"></tbody></table></div>
+    </div>
+
+    <!-- LISTA 4 — Minimi Relativi -->
+    <div class="list-panel" id="panel-4">
+      <div class="list-header" style="border-left:4px solid var(--c4)">
+        <div class="list-icon">📊</div>
+        <div>
+          <div class="list-title" style="color:var(--c4)">Minimi Relativi</div>
+          <div class="list-subtitle">ETF che rendono >8% meno della media del loro settore negli ultimi 3 mesi · recupero in vista?</div>
+        </div>
+        <div class="list-count" id="hdr-cnt4">—</div>
+      </div>
+      <div class="filtri">
+        <label>CERCA</label><input type="text" id="filter4" placeholder="ticker o nome..." oninput="renderTable('4')">
+        <label>BORSA</label><select id="borsa4" onchange="renderTable('4')"><option value="">Tutte</option></select>
+        <label>ORDINA</label><select id="sort4" onchange="renderTable('4')">
+          <option value="score_min_relativo">Score ↓</option>
+          <option value="ret_3m">Ritorno 3M ↑</option>
+          <option value="cat_mean_ret3m">Media settore</option>
+        </select>
+      </div>
+      <div class="tbl-wrap"><table><thead id="head4"></thead><tbody id="body4"></tbody></table></div>
+    </div>
+
+    <!-- LISTA MASTER -->
+    <div class="list-panel" id="panel-m">
+      <div class="list-header" style="border-left:4px solid var(--cm)">
+        <div class="list-icon">⭐</div>
+        <div>
+          <div class="list-title" style="color:var(--cm)">Lista Master — 2+ Categorie</div>
+          <div class="list-subtitle">ETF che compaiono in almeno 2 delle 4 categorie · i più interessanti</div>
+        </div>
+        <div class="list-count" id="hdr-cntM">—</div>
+      </div>
+      <div class="filtri">
+        <label>CERCA</label><input type="text" id="filterM" placeholder="ticker o nome..." oninput="renderTable('m')">
+        <label>BORSA</label><select id="borsaM" onchange="renderTable('m')"><option value="">Tutte</option></select>
+        <label>ORDINA</label><select id="sortM" onchange="renderTable('m')">
+          <option value="score_master">Score Master ↓</option>
+          <option value="n_categorie">N. Categorie ↓</option>
+          <option value="ret_1w">Ritorno 1W</option>
+        </select>
+      </div>
+      <div class="tbl-wrap"><table><thead id="headM"></thead><tbody id="bodyM"></tbody></table></div>
+    </div>
+
+  </div><!-- /mainContent -->
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════
+//  RAPTOR MIN FINDER — Frontend
+// ══════════════════════════════════════════════════════════
+
+let DATA = null;
+let ACTIVE_TAB = '1';
+
+const LIST_CONFIG = {
+  '1': { key:'lista1_min_storico',  scoreKey:'score_min_storico',  color:'#FF3355' },
+  '2': { key:'lista2_pullback',     scoreKey:'score_pullback',     color:'#00D4FF' },
+  '3': { key:'lista3_compressione', scoreKey:'score_compressione', color:'#FF6B35' },
+  '4': { key:'lista4_min_relativo', scoreKey:'score_min_relativo', color:'#7FFF00' },
+  'm': { key:'lista_master',        scoreKey:'score_master',       color:'#FFD700' },
+};
+
+// ── LOAD ────────────────────────────────────────────────────
+async function load() {
+  // Prima prova il file live, poi il base
+  const urls = [
+    'data/min_finder_live.json?t=' + Date.now(),
+    'data/min_finder.json?t=' + Date.now(),
+  ];
+
+  for (const url of urls) {
+    try {
+      const r = await fetch(url);
+      if (!r.ok) continue;
+      DATA = await r.json();
+      break;
+    } catch(e) { continue; }
+  }
+
+  if (!DATA) {
+    document.getElementById('statusDot').className = 'dot err';
+    document.getElementById('statusTxt').textContent = 'ERRORE';
+    document.getElementById('loaderMsg').textContent =
+      'min_finder_live.json non trovato — il file viene generato dallo script notturno (03:00 IT). Lancia manualmente il workflow GitHub Actions.';
+    return;
+  }
+
+  document.getElementById('loaderMsg').style.display = 'none';
+  document.getElementById('mainContent').style.display = 'block';
+  document.getElementById('statusDot').className = 'dot ok';
+  document.getElementById('statusTxt').textContent = 'ONLINE';
+
+  const gen = new Date(DATA.generated);
+  document.getElementById('lastUpd').textContent = gen.toLocaleString('it-IT');
+
+  renderPills();
+  renderInfoBar();
+  renderSoglie();
+  populateBorse();
+  renderAllCounts();
+  renderTable('1');
+}
+
+// ── PILLS ────────────────────────────────────────────────────
+function renderPills() {
+  const s = DATA.stats || {};
+  document.getElementById('pillsBar').innerHTML = [
+    { l:'UNIVERSE',        v: DATA.universe_tot || '—', s:'ETF scansionati',      c:'var(--accent)' },
+    { l:'ANALIZZATI',      v: DATA.analyzed || '—',     s:'prezzi disponibili',   c:'var(--text-bright)' },
+    { l:'MINIMI STORICI',  v: s.min_storico || 0,       s:'entro 5% dal 52w low', c:'#FF3355' },
+    { l:'PULLBACK TREND',  v: s.pullback || 0,          s:'5-15% da massimo 4w',  c:'#00D4FF' },
+    { l:'COMPRESSIONE VOL',v: s.compressione || 0,      s:'ATR compresso >30%',   c:'#FF6B35' },
+    { l:'MINIMI RELATIVI', v: s.min_relativo || 0,      s:'>8% sotto media settore','c':'#7FFF00' },
+    { l:'MASTER 2+',       v: s.master || 0,            s:'in 2+ categorie',      c:'#FFD700' },
+  ].map(p => `
+    <div class="pill">
+      <div class="pill-label">${p.l}</div>
+      <div class="pill-val" style="color:${p.c}">${p.v}</div>
+      <div class="pill-sub">${p.s}</div>
+    </div>`).join('');
+}
+
+// ── INFO BAR ─────────────────────────────────────────────────
+function renderInfoBar() {
+  const base_gen = DATA.base_generated ? new Date(DATA.base_generated).toLocaleString('it-IT') : '—';
+  const live_upd = DATA.live_updated || 0;
+  document.getElementById('infoBar').innerHTML = `
+    <span>📅 Scansione notturna: <strong>${base_gen}</strong></span>
+    <span>⚡ Live aggiornati: <strong>${live_upd}</strong> ETF</span>
+    <span>🔢 Universe: <strong>${DATA.universe_tot || 0}</strong> ETF · Analizzati: <strong>${DATA.analyzed || 0}</strong></span>`;
+}
+
+// ── SOGLIE ────────────────────────────────────────────────────
+function renderSoglie() {
+  const s = DATA.soglie || {};
+  document.getElementById('soglieBox').innerHTML = `
+    <span class="soglia-item">📉 Min storico: entro <strong>${s.min_storico_pct || 5}%</strong> dal 52w low</span>
+    <span class="soglia-item">🔄 Pullback: calo <strong>${s.pullback_min_pct || 5}%–${s.pullback_max_pct || 15}%</strong> con MA200 rialzista</span>
+    <span class="soglia-item">🔥 Compressione: ATR sceso <strong>&gt;${s.atr_compres_pct || 30}%</strong> vs media 3M</span>
+    <span class="soglia-item">📊 Min relativo: <strong>&gt;${s.min_relativo_pct || 8}%</strong> sotto media settore 3M</span>`;
+}
+
+// ── BORSE SELECT ─────────────────────────────────────────────
+function populateBorse() {
+  const allData = [
+    ...DATA.lista1_min_storico || [],
+    ...DATA.lista2_pullback || [],
+    ...DATA.lista3_compressione || [],
+    ...DATA.lista4_min_relativo || [],
+    ...DATA.lista_master || [],
+  ];
+  const borse = [...new Set(allData.map(e => e.borsa).filter(Boolean))].sort();
+  ['borsa1','borsa2','borsa3','borsa4','borsaM'].forEach(id => {
+    const sel = document.getElementById(id);
+    borse.forEach(b => {
+      const opt = document.createElement('option');
+      opt.value = b; opt.textContent = b;
+      sel.appendChild(opt);
+    });
+  });
+}
+
+// ── COUNTS ────────────────────────────────────────────────────
+function renderAllCounts() {
+  const s = DATA.stats || {};
+  document.getElementById('cnt1').textContent  = `(${s.min_storico || 0})`;
+  document.getElementById('cnt2').textContent  = `(${s.pullback || 0})`;
+  document.getElementById('cnt3').textContent  = `(${s.compressione || 0})`;
+  document.getElementById('cnt4').textContent  = `(${s.min_relativo || 0})`;
+  document.getElementById('cntM').textContent  = `(${s.master || 0})`;
+  document.getElementById('hdr-cnt1').textContent = `${s.min_storico || 0} ETF`;
+  document.getElementById('hdr-cnt2').textContent = `${s.pullback || 0} ETF`;
+  document.getElementById('hdr-cnt3').textContent = `${s.compressione || 0} ETF`;
+  document.getElementById('hdr-cnt4').textContent = `${s.min_relativo || 0} ETF`;
+  document.getElementById('hdr-cntM').textContent = `${s.master || 0} ETF`;
+}
+
+// ── TAB SWITCH ────────────────────────────────────────────────
+function showTab(id) {
+  ACTIVE_TAB = id;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.list-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.tab-${id}`).classList.add('active');
+  document.getElementById(`panel-${id}`).classList.add('active');
+  renderTable(id);
+}
+
+// ── RENDER TABLE ──────────────────────────────────────────────
+function renderTable(id) {
+  const cfg    = LIST_CONFIG[id];
+  const rawKey = id === 'm' ? 'lista_master' : cfg.key;
+  let data     = DATA[rawKey] || [];
+
+  // Filtro testo
+  const filterEl = document.getElementById(`filter${id === 'm' ? 'M' : id}`);
+  const filterVal = filterEl ? filterEl.value.toLowerCase() : '';
+  if (filterVal) {
+    data = data.filter(e =>
+      (e.ticker || '').toLowerCase().includes(filterVal) ||
+      (e.name   || '').toLowerCase().includes(filterVal)
+    );
+  }
+
+  // Filtro borsa
+  const borsaEl  = document.getElementById(`borsa${id === 'm' ? 'M' : id}`);
+  const borsaVal = borsaEl ? borsaEl.value : '';
+  if (borsaVal) data = data.filter(e => e.borsa === borsaVal);
+
+  // Ordinamento
+  const sortEl  = document.getElementById(`sort${id === 'm' ? 'M' : id}`);
+  const sortKey = sortEl ? sortEl.value : cfg.scoreKey;
+  data = [...data].sort((a, b) => {
+    const av = a[sortKey] ?? -999;
+    const bv = b[sortKey] ?? -999;
+    // Dist 52w low e atr_ratio = crescente, resto decrescente
+    if (['dist_52w_low','atr_ratio','ret_3m','ret_1w','drawdown_4w'].includes(sortKey)) {
+      return av - bv;
+    }
+    return bv - av;
+  });
+
+  // Header colonne per tipo
+  const heads = {
+    '1': ['TICKER','NOME','BORSA','CAT','PREZZO','52W LOW','DIST %','RET 1W','RET 4W','RET 3M','SCORE'],
+    '2': ['TICKER','NOME','BORSA','CAT','PREZZO','MA200','DRAW 4W','RET 1W','RET 4W','RET 3M','SCORE'],
+    '3': ['TICKER','NOME','BORSA','CAT','PREZZO','ATR RATIO','RET 1W','RET 4W','RET 3M','SCORE'],
+    '4': ['TICKER','NOME','BORSA','CAT','PREZZO','RET 3M','MEDIA SETT.','DIFF','SCORE'],
+    'm': ['TICKER','NOME','BORSA','CAT','PREZZO','CATEGORIE','RET 1W','RET 3M','SCORE'],
+  };
+
+  const headEl = document.getElementById(`head${id === 'm' ? 'M' : id}`);
+  const bodyEl = document.getElementById(`body${id === 'm' ? 'M' : id}`);
+
+  headEl.innerHTML = `<tr>${heads[id].map(h => `<th>${h}</th>`).join('')}</tr>`;
+
+  if (!data.length) {
+    bodyEl.innerHTML = `<tr><td colspan="${heads[id].length}" style="text-align:center;padding:30px;color:var(--text-dim)">Nessun ETF trovato con i filtri selezionati</td></tr>`;
+    return;
+  }
+
+  const rc = v => v == null ? 'ret-flat' : v > 0.3 ? 'ret-pos' : v < -0.3 ? 'ret-neg' : 'ret-flat';
+  const rf = v => v == null ? '—' : `${v > 0 ? '+' : ''}${v.toFixed(1)}%`;
+  const scoreBadge = s => {
+    const cls = s >= 70 ? 'score-high' : s >= 40 ? 'score-mid' : 'score-low';
+    return `<span class="score-badge ${cls}">${s}</span>`;
+  };
+  const distBar = (pct, max, color) => {
+    const w = Math.min(100, (pct / max) * 100);
+    return `<div class="dist-bar-wrap">
+      <div class="dist-bar-bg"><div class="dist-bar-fill" style="width:${w}%;background:${color}"></div></div>
+      <span>${pct != null ? pct.toFixed(1)+'%' : '—'}</span>
+    </div>`;
+  };
+
+  const catList = e => {
+    const cats = [];
+    if (e.is_min_storico)  cats.push('<span style="color:#FF3355">📉</span>');
+    if (e.is_pullback)     cats.push('<span style="color:#00D4FF">🔄</span>');
+    if (e.is_compressione) cats.push('<span style="color:#FF6B35">🔥</span>');
+    if (e.is_min_relativo) cats.push('<span style="color:#7FFF00">📊</span>');
+    return cats.join(' ') || '—';
+  };
+
+  const rows = data.slice(0, 300).map(e => {
+    const base = `
+      <td class="ticker">${e.ticker || '—'}</td>
+      <td class="name" title="${e.name || ''}">${e.name || e.ticker}</td>
+      <td class="borsa">${e.borsa || '—'}</td>
+      <td><span class="cat-badge">${(e.categoria || '').substring(0,12)}</span></td>
+      <td class="price">${e.price != null ? e.price.toFixed(2) : '—'}</td>`;
+
+    let extra = '';
+    if (id === '1') {
+      extra = `
+        <td>${e.low_52w != null ? e.low_52w.toFixed(2) : '—'}</td>
+        <td>${distBar(e.dist_52w_low, 5, '#FF3355')}</td>
+        <td class="${rc(e.ret_1w)}">${rf(e.ret_1w)}</td>
+        <td class="${rc(e.ret_4w)}">${rf(e.ret_4w)}</td>
+        <td class="${rc(e.ret_3m)}">${rf(e.ret_3m)}</td>
+        <td>${scoreBadge(e.score_min_storico || 0)}</td>`;
+    } else if (id === '2') {
+      extra = `
+        <td>${e.ma200 != null ? e.ma200.toFixed(2) : '—'}</td>
+        <td>${distBar(e.drawdown_4w, 15, '#00D4FF')}</td>
+        <td class="${rc(e.ret_1w)}">${rf(e.ret_1w)}</td>
+        <td class="${rc(e.ret_4w)}">${rf(e.ret_4w)}</td>
+        <td class="${rc(e.ret_3m)}">${rf(e.ret_3m)}</td>
+        <td>${scoreBadge(e.score_pullback || 0)}</td>`;
+    } else if (id === '3') {
+      extra = `
+        <td>${e.atr_ratio != null ? e.atr_ratio.toFixed(2) : '—'}</td>
+        <td class="${rc(e.ret_1w)}">${rf(e.ret_1w)}</td>
+        <td class="${rc(e.ret_4w)}">${rf(e.ret_4w)}</td>
+        <td class="${rc(e.ret_3m)}">${rf(e.ret_3m)}</td>
+        <td>${scoreBadge(e.score_compressione || 0)}</td>`;
+    } else if (id === '4') {
+      const diff = e.cat_mean_ret3m != null && e.ret_3m != null ? e.cat_mean_ret3m - e.ret_3m : null;
+      extra = `
+        <td class="${rc(e.ret_3m)}">${rf(e.ret_3m)}</td>
+        <td class="${rc(e.cat_mean_ret3m)}">${rf(e.cat_mean_ret3m)}</td>
+        <td class="ret-neg">${diff != null ? '+'+diff.toFixed(1)+'%' : '—'}</td>
+        <td>${scoreBadge(e.score_min_relativo || 0)}</td>`;
+    } else if (id === 'm') {
+      extra = `
+        <td>${catList(e)} <span class="multi-badge">${e.n_categorie}×</span></td>
+        <td class="${rc(e.ret_1w)}">${rf(e.ret_1w)}</td>
+        <td class="${rc(e.ret_3m)}">${rf(e.ret_3m)}</td>
+        <td>${scoreBadge(e.score_master || 0)}</td>`;
+    }
+
+    return `<tr>${base}${extra}</tr>`;
+  }).join('');
+
+  bodyEl.innerHTML = rows;
+}
+
+
+// ── DRAWER ─────────────────────────────────────────────────────────
+function openDrawer(){
+  document.getElementById('drawer-overlay').style.display='block';
+  document.getElementById('drawer').classList.add('open');
+}
+function closeDrawer(){
+  document.getElementById('drawer-overlay').style.display='none';
+  document.getElementById('drawer').classList.remove('open');
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+
+window.addEventListener('load', load);
+</script>
+
+<!-- DRAWER OVERLAY -->
+<div class="drawer-overlay" id="drawer-overlay" onclick="closeDrawer()"></div>
+
+<!-- DRAWER MIN FINDER METODOLOGIA -->
+<div class="drawer" id="drawer">
+  <div class="dw-header">
+    <div style="font-size:14px;font-weight:700;color:var(--accent);flex:1;letter-spacing:2px;font-family:'Syne',sans-serif;">📐 METODOLOGIA MIN FINDER</div>
+    <div onclick="closeDrawer()" style="width:28px;height:28px;border-radius:4px;background:rgba(255,255,255,.05);color:var(--text-dim);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--border);">✕</div>
+  </div>
+  <div class="dw-content">
+
+    <div class="dw-section">Come funziona</div>
+    <div style="background:#070A0F;border:1px solid #1E2A38;border-radius:8px;padding:14px;margin-bottom:10px;font-size:11px;color:#4A6070;line-height:1.8;">
+      Il Min Finder scansiona <strong style="color:#C8D8E8">tutti i 2.253 ETF</strong> dell'universo RAPTOR ogni notte alle 03:00 IT tramite GitHub Actions.<br><br>
+      Per ogni ETF scarica <strong style="color:#C8D8E8">1 anno di prezzi</strong> da Yahoo Finance e calcola 4 categorie di opportunità.<br><br>
+      Durante il giorno (09:30 e 16:00 IT) aggiorna solo i candidati selezionati con prezzi live.
+    </div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+      <div style="background:rgba(255,51,85,.08);border:1px solid rgba(255,51,85,.3);border-radius:6px;padding:6px 12px;font-size:10px;color:#FF3355;">📉 Scansione notturna: 03:00 IT</div>
+      <div style="background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.3);border-radius:6px;padding:6px 12px;font-size:10px;color:#00D4FF;">⚡ Live update: 09:30 e 16:00 IT</div>
+    </div>
+
+    <div class="dw-section">📉 Categoria 1 — Minimi Storici</div>
+    <div class="dw-card" style="border-left:3px solid #FF3355;">
+      <div class="dw-card-title" style="color:#FF3355;">Soglia: entro 5% dal minimo delle ultime 52 settimane</div>
+      <div class="dw-card-desc">
+        <strong style="color:#C8D8E8">Formula:</strong> (Prezzo − Min52w) / Min52w × 100 ≤ 5%<br><br>
+        <strong style="color:#C8D8E8">Score:</strong> 100 = esattamente sul minimo · 50 = al 5%<br><br>
+        <strong style="color:#C8D8E8">Come leggerlo:</strong> Un ETF su questa lista è toccato o quasi il suo minimo annuale. Può essere:<br>
+        → 🟢 Un'occasione di acquisto se il trend macro è favorevole<br>
+        → 🔴 Una trappola ribassista se il settore è sotto pressione<br><br>
+        Incrocia sempre con il segnale dello Scanner (BUY/SELL) e con il regime del Macro Mover.
+      </div>
+    </div>
+
+    <div class="dw-section">🔄 Categoria 2 — Pullback in Trend</div>
+    <div class="dw-card" style="border-left:3px solid #00D4FF;">
+      <div class="dw-card-title" style="color:#00D4FF;">Condizioni: calo 5-15% dal massimo 4 settimane + MA200 rialzista</div>
+      <div class="dw-card-desc">
+        <strong style="color:#C8D8E8">Criterio 1:</strong> Drawdown dal massimo delle ultime 4 settimane tra 5% e 15%<br>
+        <strong style="color:#C8D8E8">Criterio 2:</strong> Prezzo sopra MA200 (trend primario rialzista)<br>
+        <strong style="color:#C8D8E8">Criterio 3:</strong> MA200 in salita rispetto a 5 sedute fa<br><br>
+        <strong style="color:#C8D8E8">Logica:</strong> Il trend di fondo è intatto, ma l'ETF ha corretto. È il classico "buy the dip" con filtro quantitativo.<br><br>
+        <strong style="color:#C8D8E8">Score:</strong> Più alto se vicino a MA200 e calo moderato (7-10%).
+      </div>
+    </div>
+
+    <div class="dw-section">🔥 Categoria 3 — Compressione Volatilità</div>
+    <div class="dw-card" style="border-left:3px solid #FF6B35;">
+      <div class="dw-card-title" style="color:#FF6B35;">Soglia: ATR 14 sceso >30% rispetto alla media degli ultimi 3 mesi</div>
+      <div class="dw-card-desc">
+        <strong style="color:#C8D8E8">Formula:</strong> ATR_corrente / ATR_media_63gg &lt; 0.70<br><br>
+        <strong style="color:#C8D8E8">ATR Ratio:</strong> 0.60 = volatilità compressa del 40% → score alto<br><br>
+        <strong style="color:#C8D8E8">Logica:</strong> La volatilità si comprime prima di un movimento direzionale importante (molla carica). Non indica la direzione — può essere breakout rialzista o ribassista.<br><br>
+        Combina con il segnale KAMA dello Scanner per capire la direzione probabile.
+      </div>
+    </div>
+
+    <div class="dw-section">📊 Categoria 4 — Minimi Relativi</div>
+    <div class="dw-card" style="border-left:3px solid #7FFF00;">
+      <div class="dw-card-title" style="color:#7FFF00;">Soglia: performance 3 mesi >8% peggiore della media del settore</div>
+      <div class="dw-card-desc">
+        <strong style="color:#C8D8E8">Formula:</strong> Media_ret3m_settore − Ret3m_ETF &gt; 8%<br><br>
+        <strong style="color:#C8D8E8">Settore:</strong> Raggruppamento per colonna CATEGORIA del database ETF<br><br>
+        <strong style="color:#C8D8E8">Logica:</strong> Mean reversion — ETF che ha sottoperformato il suo settore tende statisticamente a recuperare. Valido soprattutto per ETF simili (stesso indice, diversa emittente).<br><br>
+        <strong style="color:#C8D8E8">Colonna DIFF:</strong> quanto l'ETF è sotto la media del suo settore.
+      </div>
+    </div>
+
+    <div class="dw-section">⭐ Lista Master — 2+ Categorie</div>
+    <div class="dw-card" style="border-left:3px solid #FFD700;">
+      <div class="dw-card-title" style="color:#FFD700;">ETF che appaiono in almeno 2 delle 4 categorie</div>
+      <div class="dw-card-desc">
+        Un ETF che è contemporaneamente:<br>
+        → Su minimo storico E in compressione volatilità → potenziale rimbalzo violento<br>
+        → In pullback E minimo relativo → doppia conferma di debolezza temporanea<br>
+        → In pullback E compressione → ingresso in trend con breakout imminente<br><br>
+        <strong style="color:#C8D8E8">Score Master:</strong> massimo tra i score delle categorie presenti.
+      </div>
+    </div>
+
+    <div class="dw-section">Come Usare i Score</div>
+    <div style="background:#070A0F;border:1px solid #1E2A38;border-radius:8px;padding:14px;margin-bottom:8px;">
+      <div style="display:flex;flex-direction:column;gap:8px;font-size:11px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="background:rgba(0,255,136,.1);color:#00FF88;border:1px solid rgba(0,255,136,.3);padding:2px 8px;border-radius:20px;white-space:nowrap;">≥ 70</span>
+          <span style="color:#C8D8E8;">Opportunità forte — ETF molto vicino alla soglia</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="background:rgba(255,184,0,.1);color:#FFB800;border:1px solid rgba(255,184,0,.3);padding:2px 8px;border-radius:20px;white-space:nowrap;">40–69</span>
+          <span style="color:#C8D8E8;">Opportunità media — da monitorare</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="background:rgba(255,51,85,.1);color:#FF3355;border:1px solid rgba(255,51,85,.3);padding:2px 8px;border-radius:20px;white-space:nowrap;">&lt; 40</span>
+          <span style="color:#C8D8E8;">Debole — appena sopra la soglia</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dw-section">Workflow Operativo Consigliato</div>
+    <div style="background:#070A0F;border:1px solid #1E2A38;border-radius:8px;padding:14px;font-size:11px;color:#4A6070;margin-bottom:10px;">
+      <strong style="color:#C8D8E8">1.</strong> Guarda la <strong style="color:#FFD700">Lista Master</strong> — sono i più interessanti<br>
+      <strong style="color:#C8D8E8">2.</strong> Apri lo <strong style="color:#00D4FF">Scanner</strong> e verifica il segnale (BUY/SELL/WATCH)<br>
+      <strong style="color:#C8D8E8">3.</strong> Controlla il <strong style="color:#7FFF00">regime Macro Mover</strong> — il settore è favorito?<br>
+      <strong style="color:#C8D8E8">4.</strong> Se tutti e 3 concordano → valuta l'ingresso con stop su ATR×2
+    </div>
+
+    <div style="background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.2);border-radius:8px;padding:12px;font-size:11px;color:#FFB800;">
+      ⚠️ I dati sono a scopo informativo. Non costituiscono consulenza finanziaria. Usa sempre stop loss e gestione del rischio appropriata.
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
