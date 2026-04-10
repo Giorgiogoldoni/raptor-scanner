@@ -1,0 +1,55 @@
+name: 🔭 RAPTOR Scanner + Min Finder
+
+on:
+  schedule:
+    - cron: '0 1 * * 1-5'     # 03:00 IT (01:00 UTC) — scansione notturna 2.253 ETF
+    - cron: '30 7 * * 1-5'    # 09:30 IT (07:30 UTC) — live update mattina
+    - cron: '0 14 * * 1-5'    # 16:00 IT (14:00 UTC) — live update pomeriggio
+  workflow_dispatch:
+
+jobs:
+  scanner-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installa dipendenze
+        run: |
+          pip install --upgrade pip
+          pip install yfinance numpy pandas requests
+
+      # ── SCANSIONE NOTTURNA (solo alle 03:00) ──────────────────
+      - name: Scansione notturna — tutti i 2.253 ETF
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.schedule, '0 1')
+        run: |
+          echo "⏰ Ora UTC: $(date -u '+%H:%M')"
+          cp etf_universe.json data/etf_universe.json || true
+          python fetch_min_finder.py
+
+      # ── LIVE UPDATE (09:30 e 16:00) ───────────────────────────
+      - name: Live update candidati
+        if: github.event_name == 'workflow_dispatch' || contains(github.event.schedule, '30 7') || contains(github.event.schedule, '0 14')
+        run: python update_min_finder_live.py
+
+      # ── Scanner principale ────────────────────────────────────
+      - name: Scanner principale
+        run: python fetch_and_compute.py
+        continue-on-error: true
+
+      # ── Commit ────────────────────────────────────────────────
+      - name: Commit dati aggiornati
+        run: |
+          git config user.name  "raptor-bot"
+          git config user.email "raptor-bot@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "🤖 Scanner update $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push
