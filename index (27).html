@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAPTOR SCANNER</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#F2F4F7;--surface:#FFF;--surface2:#F8F9FB;--navy:#0D1B2A;
+  --text:#1A1A2A;--text2:#6B7280;--text3:#9CA3AF;--border:#E2E6ED;--border2:#EEF0F4;
+  --accent:#2563EB;--accent2:#06B6D4;
+  --buy:#16A34A;--buy-bg:#DCFCE7;--buy-border:#86EFAC;
+  --sell:#DC2626;--sell-bg:#FEE2E2;--sell-border:#FCA5A5;
+  --watch:#D97706;--watch-bg:#FEF3C7;--watch-border:#FCD34D;
+  --ranging:#6B7280;--ranging-bg:#F3F4F6;
+  --shadow:0 1px 3px rgba(13,27,42,.06),0 4px 12px rgba(13,27,42,.04);
+  --radius:10px;--radius-sm:6px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;}
+button{font-family:'Syne',sans-serif;cursor:pointer;border:none;background:none;}
+input,select{font-family:'DM Mono',monospace;}
+.mono{font-family:'DM Mono',monospace;}
+.mono-cell{font-family:'DM Mono',monospace;font-size:12px;}
+
+.navbar{background:var(--navy);height:52px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,.2);}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#2563EB,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:#fff;}
+.brand-name{font-size:13px;font-weight:700;color:#fff;}
+.brand-sub{font-size:9px;color:rgba(255,255,255,.4);font-family:'DM Mono',monospace;letter-spacing:1px;}
+.navbar-right{display:flex;align-items:center;gap:10px;}
+.nav-meta{font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);line-height:1.6;}
+.nav-meta b{color:rgba(255,255,255,.85);}
+.status-dot{width:6px;height:6px;border-radius:50%;background:#22C55E;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.main-tabs{background:var(--surface);border-bottom:1px solid var(--border);display:flex;padding:0 20px;gap:4px;position:sticky;top:52px;z-index:199;}
+.main-tab{padding:12px 18px;font-size:12px;font-weight:700;color:var(--text2);border-bottom:3px solid transparent;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.main-tab:hover{color:var(--text);}
+.main-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+.stat-bar{background:var(--surface);border-bottom:1px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.stat-chip{display:flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;cursor:pointer;transition:all .15s;border:1.5px solid transparent;}
+.stat-chip:not(.active){background:var(--surface);color:var(--text2);border-color:var(--border);}
+.stat-chip.active.all{background:var(--navy);color:#fff;border-color:var(--navy);}
+.stat-chip.active.buy{background:var(--buy-bg);color:var(--buy);border-color:var(--buy);}
+.stat-chip.active.sell{background:var(--sell-bg);color:var(--sell);border-color:var(--sell);}
+.stat-chip.active.watch{background:var(--watch-bg);color:var(--watch);border-color:var(--watch);}
+.stat-chip.active.ranging{background:var(--ranging-bg);color:var(--ranging);border-color:var(--ranging);}
+.chip-count{font-size:13px;font-weight:700;}
+.stat-sep{width:1px;height:20px;background:var(--border);}
+.search-box{padding:6px 12px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;width:180px;outline:none;}
+.search-box:focus{border-color:var(--accent);}
+
+.main{padding:16px 20px;max-width:1800px;margin:0 auto;}
+.tabs-row{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px;}
+.tab-btn{padding:6px 13px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--surface);color:var(--text2);font-size:12px;font-weight:600;transition:all .15s;}
+.tab-btn:hover{border-color:var(--accent);color:var(--accent);}
+.tab-btn.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+
+.table-wrap{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;}
+.table-scroll{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;min-width:960px;}
+thead th{background:var(--navy);color:rgba(255,255,255,.7);font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.8px;text-transform:uppercase;padding:10px 12px;text-align:left;white-space:nowrap;cursor:pointer;border-right:1px solid rgba(255,255,255,.06);}
+thead th:hover{color:#fff;}
+thead th.sort-asc::after{content:' ▲';color:#06B6D4;}
+thead th.sort-desc::after{content:' ▼';color:#06B6D4;}
+tbody tr{border-bottom:1px solid var(--border2);transition:background .1s;cursor:pointer;}
+tbody tr:hover{background:var(--surface2);}
+tbody tr:last-child{border-bottom:none;}
+td{padding:9px 12px;font-size:13px;white-space:nowrap;vertical-align:middle;}
+
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:12px;font-family:'DM Mono',monospace;font-size:10px;font-weight:500;border:1px solid transparent;}
+.badge.BUY{background:var(--buy-bg);color:var(--buy);border-color:var(--buy-border);}
+.badge.SELL{background:var(--sell-bg);color:var(--sell);border-color:var(--sell-border);}
+.badge.WATCH{background:var(--watch-bg);color:var(--watch);border-color:var(--watch-border);}
+.badge.RANGING{background:var(--ranging-bg);color:var(--ranging);border-color:#D1D5DB;}
+.badge-dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+
+.sig-date-cell{display:flex;flex-direction:column;gap:3px;}
+.sig-date-main{display:inline-flex;align-items:center;gap:5px;padding:4px 10px;border-radius:8px;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;}
+.sig-date-main.BUY{background:#dcfce7;color:#15803d;border:1.5px solid #16a34a;}
+.sig-date-main.SELL{background:#fee2e2;color:#b91c1c;border:1.5px solid #dc2626;}
+.sig-date-main.WATCH{background:#fef3c7;color:#92400e;border:1.5px solid #d97706;}
+.sig-date-main.RANGING{background:#f3f4f6;color:#6b7280;border:1.5px solid #9ca3af;}
+.sig-date-sub{font-size:9px;color:var(--text3);font-family:'DM Mono',monospace;padding-left:4px;}
+
+.ticker-cell{display:flex;flex-direction:column;gap:2px;}
+.ticker-sym{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--accent);}
+.ticker-name{font-size:11px;color:var(--text2);max-width:200px;overflow:hidden;text-overflow:ellipsis;}
+.price-cell{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;}
+.chg-pos{color:var(--buy);}.chg-neg{color:var(--sell);}.chg-neu{color:var(--text2);}
+.er-cell{display:flex;align-items:center;gap:6px;}
+.er-val{font-family:'DM Mono',monospace;font-size:11px;width:34px;text-align:right;}
+.er-bar-wrap{width:50px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
+.er-bar-fill{height:100%;border-radius:2px;background:var(--accent);}
+.score-cell{display:flex;align-items:center;gap:6px;}
+.score-num{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;width:26px;}
+.score-ring{width:26px;height:26px;}
+.cat-tag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 6px;border-radius:10px;border:1px solid var(--border);color:var(--text2);}
+.short-tag{background:#FEE2E2;color:#DC2626;border-color:#FCA5A5;}
+.loading{padding:50px;text-align:center;}
+.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 14px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.empty-state{padding:50px;text-align:center;color:var(--text2);}
+
+/* PORTFOLIO */
+.port-wrap{padding:16px 20px;max-width:1800px;margin:0 auto;}
+.port-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px;}
+.port-kpi{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;box-shadow:var(--shadow);}
+.port-kpi-label{font-size:9px;color:var(--text2);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;font-family:'DM Mono',monospace;}
+.port-kpi-val{font-size:22px;font-weight:700;line-height:1;}
+.cat-section{margin-bottom:22px;}
+.cat-title{font-size:13px;font-weight:700;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px;}
+.cat-title span{font-size:11px;font-weight:400;color:var(--text2);}
+.positions-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px;}
+.pos-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.pos-card.pos-buy{border-left:3px solid var(--buy);}
+.pos-card.pos-sell{border-left:3px solid var(--sell);}
+.pos-card.pos-closed{opacity:.72;border-left:3px solid var(--text3);}
+.pos-header{padding:10px 12px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.pos-ticker{font-family:'DM Mono',monospace;font-size:14px;font-weight:700;}
+.pos-name{font-size:10px;color:var(--text2);max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pos-body{padding:10px 12px;}
+.pos-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:8px;}
+.pos-metric{background:var(--bg);border-radius:6px;padding:6px 8px;}
+.pos-metric-label{font-size:8px;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;font-family:'DM Mono',monospace;}
+.pos-metric-val{font-size:13px;font-weight:700;font-family:'DM Mono',monospace;}
+.pos-stops{background:var(--bg);border-radius:6px;padding:8px 10px;margin-bottom:8px;display:flex;gap:12px;}
+.pos-stop-item{flex:1;text-align:center;}
+.pos-stop-label{font-size:8px;color:var(--text2);text-transform:uppercase;font-family:'DM Mono',monospace;letter-spacing:.5px;margin-bottom:2px;}
+.pos-stop-val{font-size:12px;font-weight:700;font-family:'DM Mono',monospace;}
+.pos-bar-wrap{height:4px;background:var(--border);border-radius:2px;overflow:hidden;}
+.pos-bar-fill{height:100%;border-radius:2px;}
+.pos-footer{padding:6px 12px;border-top:1px solid var(--border);font-size:10px;color:var(--text2);font-family:'DM Mono',monospace;display:flex;justify-content:space-between;}
+.no-pos{text-align:center;padding:40px;color:var(--text3);font-size:12px;}
+
+/* METRICHE */
+.metrics-wrap{padding:20px;max-width:1200px;margin:0 auto;}
+.metrics-hero{background:var(--navy);border-radius:var(--radius);padding:24px 28px;margin-bottom:24px;}
+.metrics-hero h1{font-size:20px;font-weight:800;color:#fff;margin-bottom:8px;}
+.metrics-hero p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;max-width:700px;}
+.metrics-section{margin-bottom:28px;}
+.metrics-section-title{font-size:10px;font-weight:700;letter-spacing:2px;color:var(--text2);text-transform:uppercase;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid var(--border);}
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;}
+.metric-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);}
+.metric-name{font-size:14px;font-weight:700;margin-bottom:6px;}
+.metric-badge{font-size:9px;padding:2px 8px;border-radius:10px;font-family:'DM Mono',monospace;font-weight:600;background:#dbeafe;color:#1d4ed8;float:right;}
+.metric-desc{font-size:12px;color:var(--text2);line-height:1.7;margin-bottom:10px;}
+.metric-levels{display:flex;flex-direction:column;gap:4px;}
+.metric-level{display:flex;align-items:center;gap:8px;font-size:11px;}
+.ml-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.ml-label{font-family:'DM Mono',monospace;font-weight:600;min-width:60px;font-size:11px;}
+.ml-desc{color:var(--text2);font-size:11px;}
+.signal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-bottom:16px;}
+.sig-card{border:1.5px solid;border-radius:var(--radius);padding:14px;}
+.sig-card h3{font-size:13px;font-weight:700;margin-bottom:8px;}
+.sig-card p{font-size:11px;line-height:1.7;margin-bottom:8px;}
+.sig-card ul{font-size:11px;padding-left:16px;line-height:1.9;}
+.formula-box{background:var(--navy);border-radius:8px;padding:12px 16px;font-family:'DM Mono',monospace;font-size:11px;color:#06B6D4;margin:10px 0;line-height:1.8;}
+.step-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin:10px 0;}
+.step-card{background:var(--bg);border-radius:8px;padding:12px 14px;}
+.step-num{font-size:22px;font-weight:800;color:var(--border);line-height:1;margin-bottom:4px;}
+.step-title{font-size:12px;font-weight:700;margin-bottom:4px;}
+.step-desc{font-size:11px;color:var(--text2);line-height:1.6;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(13,27,42,.55);z-index:500;display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--surface);border-radius:14px;box-shadow:0 12px 40px rgba(13,27,42,.14);width:100%;max-width:900px;margin:auto;overflow:hidden;animation:slideUp .2s ease;}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{background:var(--navy);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;}
+.modal-ticker{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:#fff;}
+.modal-name{font-size:12px;color:rgba(255,255,255,.5);}
+.modal-close{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.1);color:#fff;font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.modal-close:hover{background:rgba(255,255,255,.2);}
+.modal-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:1px;background:var(--border);border-bottom:1px solid var(--border);}
+.kpi{background:var(--surface);padding:10px 14px;}
+.kpi-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:.8px;text-transform:uppercase;}
+.kpi-val{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;}
+.kpi-val.pos{color:var(--buy);}.kpi-val.neg{color:var(--sell);}.kpi-val.warn{color:var(--watch);}
+.modal-body{padding:14px 18px;display:flex;flex-direction:column;gap:10px;}
+.chart-tabs{display:flex;gap:6px;margin-bottom:6px;}
+.chart-tab{padding:5px 12px;border-radius:var(--radius-sm);border:1.5px solid var(--border);background:var(--bg);font-family:'DM Mono',monospace;font-size:11px;color:var(--text2);cursor:pointer;transition:all .15s;}
+.chart-tab.active{background:var(--navy);border-color:var(--navy);color:#fff;}
+.chart-container{position:relative;height:280px;}
+.ind-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;}
+.ind-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;}
+.ind-card-label{font-family:'DM Mono',monospace;font-size:9px;color:var(--text2);letter-spacing:.8px;text-transform:uppercase;margin-bottom:4px;}
+.ind-card-val{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;}
+.ind-card-sub{font-size:10px;color:var(--text2);margin-top:2px;}
+
+.footer{text-align:center;padding:16px;font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);border-top:1px solid var(--border);margin-top:20px;}
+@media(max-width:600px){.navbar,.main,.port-wrap,.metrics-wrap{padding-left:12px;padding-right:12px;}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="brand">
+    <div class="brand-icon">RS</div>
+    <div>
+      <div class="brand-name">RAPTOR SCANNER</div>
+      <div class="brand-sub">ETF INTELLIGENCE · 370 ETF</div>
+    </div>
+  </div>
+  <div class="navbar-right">
+    <div class="nav-meta">Aggiornato: <b id="nav-time">—</b> · <b id="nav-total">—</b> ETF</div>
+    <div style="display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,.5)">
+      <div class="status-dot"></div>LIVE
+    </div>
+    <a href="https://giorgiogoldoni.github.io/trader/" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);font-size:11px;padding:5px 12px;border-radius:6px;text-decoration:none;font-weight:600;">&#8592; Hub</a>
+  </div>
+</nav>
+
+<div class="main-tabs">
+  <div class="main-tab active" onclick="showMainTab('portfolio',this)">📂 Portafoglio</div>
+  <div class="main-tab" onclick="showMainTab('scanner',this)">📊 Scanner</div>
+  <div class="main-tab" onclick="showMainTab('metriche',this)">📐 Metriche</div>
+</div>
+
+<div class="tab-content active" id="tab-portfolio">
+  <div class="port-wrap">
+    <div id="port-loading" class="loading"><div class="spinner"></div></div>
+    <div id="port-content" style="display:none">
+      <div class="port-summary" id="port-summary"></div>
+      <div id="port-categories"></div>
+    </div>
+    <div id="port-empty" style="display:none" class="empty-state">
+      <div style="font-size:40px;margin-bottom:12px">📂</div>
+      <div style="font-size:15px;font-weight:600;margin-bottom:6px">Nessuna posizione aperta</div>
+      <div style="font-size:13px;max-width:500px;margin:0 auto">Il portafoglio si popola automaticamente quando lo Scanner rileva segnali BUY o SELL con score &#8805; 65. Max 5 posizioni per categoria.</div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-scanner">
+  <div class="stat-bar">
+    <div class="stat-chip active all" onclick="setSignalFilter('ALL')"><div class="chip-count" id="cnt-all">—</div><span>TUTTI</span></div>
+    <div class="stat-chip buy" onclick="setSignalFilter('BUY')"><span>🟢</span><div class="chip-count" id="cnt-buy">—</div><span>BUY</span></div>
+    <div class="stat-chip sell" onclick="setSignalFilter('SELL')"><span>🔴</span><div class="chip-count" id="cnt-sell">—</div><span>SELL</span></div>
+    <div class="stat-chip watch" onclick="setSignalFilter('WATCH')"><span>⚡</span><div class="chip-count" id="cnt-watch">—</div><span>WATCH</span></div>
+    <div class="stat-chip ranging" onclick="setSignalFilter('RANGING')"><span>⚫</span><div class="chip-count" id="cnt-ranging">—</div><span>RANGING</span></div>
+    <div class="stat-sep"></div>
+    <div style="margin-left:auto"><input class="search-box" type="text" placeholder="Cerca ticker o nome…" id="search-input" oninput="applyFilters()"></div>
+  </div>
+  <div class="main">
+    <div class="tabs-row">
+      <button class="tab-btn active" onclick="setCategoryFilter('TUTTI',this)">Tutti</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Leva Long',this)">Leva Long</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Short',this)">Short</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Materie Prime',this)">Materie Prime</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Tematico',this)">Tematici</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Settoriale Mondo',this)">Sett. Mondo</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Settoriale USA',this)">Sett. USA</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Settoriale Europa',this)">Sett. EU</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Azionario',this)">Azionari</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Obbligazionario',this)">Obblig.</button>
+      <button class="tab-btn" onclick="setCategoryFilter('Monetario',this)">Monetari</button>
+    </div>
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table id="etf-table">
+          <thead><tr>
+            <th onclick="sortBy('signal')">Segnale</th>
+            <th onclick="sortBy('signal_date')">&#x1F4C5; Data segnale</th>
+            <th onclick="sortBy('ticker')">Ticker / Nome</th>
+            <th onclick="sortBy('categoria')">Categoria</th>
+            <th onclick="sortBy('price')">Prezzo</th>
+            <th onclick="sortBy('chg_pct')">Var %</th>
+            <th onclick="sortBy('er')">ER</th>
+            <th onclick="sortBy('rsi')">RSI</th>
+            <th onclick="sortBy('adx')">ADX</th>
+            <th onclick="sortBy('score')">Score</th>
+            <th onclick="sortBy('currency')">Val.</th>
+          </tr></thead>
+          <tbody id="etf-body">
+            <tr><td colspan="11"><div class="loading"><div class="spinner"></div></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-metriche">
+  <div class="metrics-wrap">
+    <div class="metrics-hero">
+      <h1>📐 Metodologia RAPTOR Scanner</h1>
+      <p>Il sistema combina 7 indicatori tecnici in un motore quantitativo che classifica ogni ETF con un segnale operativo e uno score 0–100. Ogni run aggiorna 370 ETF con dati Yahoo Finance a chiusura giornaliera.</p>
+    </div>
+
+    <div class="metrics-section">
+      <div class="metrics-section-title">🎯 I 4 segnali operativi</div>
+      <div class="signal-grid">
+        <div class="sig-card" style="border-color:#86efac;background:#dcfce7">
+          <h3 style="color:#16a34a">🟢 BUY</h3>
+          <p style="color:#166534">Tutti e 3 i criteri soddisfatti contemporaneamente:</p>
+          <ul style="color:#166534"><li>KAMA Fast sopra KAMA Slow</li><li>ER ≥ soglia trending</li><li>Supertrend bullish</li></ul>
+        </div>
+        <div class="sig-card" style="border-color:#fca5a5;background:#fee2e2">
+          <h3 style="color:#dc2626">🔴 SELL</h3>
+          <p style="color:#991b1b">KAMA, ER e Supertrend tutti in direzione bearish. Segnale di uscita o posizionamento short.</p>
+          <ul style="color:#991b1b"><li>KAMA Fast sotto KAMA Slow</li><li>ER ≥ soglia (mercato trending)</li><li>Supertrend bearish</li></ul>
+        </div>
+        <div class="sig-card" style="border-color:#fcd34d;background:#fef3c7">
+          <h3 style="color:#d97706">⚡ WATCH</h3>
+          <p style="color:#92400e">Solo 1-2 criteri su 3. Segnale in formazione, monitorare nelle prossime sedute.</p>
+          <ul style="color:#92400e"><li>ER in zona di confine</li><li>KAMA e Supertrend discordanti</li><li>Possibile ingresso imminente</li></ul>
+        </div>
+        <div class="sig-card" style="border-color:#d1d5db;background:#f3f4f6">
+          <h3 style="color:#6b7280">⚫ RANGING</h3>
+          <p style="color:#374151">ER sotto soglia. Mercato laterale, i segnali KAMA non sono affidabili. Attendere.</p>
+          <ul style="color:#374151"><li>ER &lt; 0.20 (normale) o 0.25 (leva)</li><li>Nessun trend direzionale</li><li>Volatilità inconsistente</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="metrics-section">
+      <div class="metrics-section-title">🏆 Score 0–100 — composito pesato</div>
+      <div class="formula-box">Score = ER×25 + Supertrend×20 + KAMA×20 + Momentum3m×15 + ADX×10 + RSI×5 + SAR×5</div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-badge">25 pt</div>
+          <div class="metric-name">ER — Efficiency Ratio</div>
+          <div class="metric-desc">Misura la direzionalità del movimento. ER = distanza netta / somma variazioni. Vicino a 1 = trend puro, vicino a 0 = ranging. Soglia normale: 0.20–0.25, leva: 0.25–0.30.</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#16a34a"></div><div class="ml-label">≥ 0.50</div><div class="ml-desc">Trend forte — score pieno</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#d97706"></div><div class="ml-label">0.25–0.49</div><div class="ml-desc">Trending moderato</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#dc2626"></div><div class="ml-label">&lt; 0.20</div><div class="ml-desc">Ranging — segnali inaffidabili</div></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-badge">20 pt</div>
+          <div class="metric-name">Supertrend (ATR 10, mult 3)</div>
+          <div class="metric-desc">Indicatore trend basato su ATR. Bullish = linea verde sotto il prezzo. Cambia direzione quando il prezzo rompe le bande ATR. Molto efficace nei trend forti.</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#16a34a"></div><div class="ml-label">BULL</div><div class="ml-desc">Prezzo sopra banda ATR — +20 pt</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#dc2626"></div><div class="ml-label">BEAR</div><div class="ml-desc">Prezzo sotto banda ATR — 0 pt</div></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-badge">20 pt</div>
+          <div class="metric-name">KAMA Fast / Slow</div>
+          <div class="metric-desc">Kaufman Adaptive Moving Average. Si adatta alla volatilità: accelera nei trend, rallenta nei range. Fast (5,20) incrocia Slow (2,30). L'incrocio genera i segnali BUY/SELL.</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#16a34a"></div><div class="ml-label">Fast &gt; Slow</div><div class="ml-desc">Trend bullish — +20 pt</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#dc2626"></div><div class="ml-label">Fast &lt; Slow</div><div class="ml-desc">Trend bearish — 0 pt</div></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-badge">15 pt</div>
+          <div class="metric-name">Momentum 3 mesi</div>
+          <div class="metric-desc">Performance rolling 63 giorni. Il predittore più robusto secondo Jegadeesh e Titman (1993). Normalizzato tra -30% e +30% per il calcolo dello score.</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#16a34a"></div><div class="ml-label">&gt; +10%</div><div class="ml-desc">Momentum forte — score alto</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#d97706"></div><div class="ml-label">0 — +10%</div><div class="ml-desc">Momentum positivo</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#dc2626"></div><div class="ml-label">&lt; 0%</div><div class="ml-desc">Momentum negativo</div></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-badge">10 pt</div>
+          <div class="metric-name">ADX 14</div>
+          <div class="metric-desc">Average Directional Index. Misura la FORZA del trend, non la direzione. Sopra 25 = trend presente, sopra 40 = trend molto forte. Normalizzato su 60 per lo score.</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#16a34a"></div><div class="ml-label">&gt; 40</div><div class="ml-desc">Trend molto forte</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#d97706"></div><div class="ml-label">25–40</div><div class="ml-desc">Trend presente</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#dc2626"></div><div class="ml-label">&lt; 20</div><div class="ml-desc">Mercato laterale</div></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-badge">5 pt</div>
+          <div class="metric-name">RSI 14</div>
+          <div class="metric-desc">Relative Strength Index. In un trend forte la zona 40–65 è normale e sana. Sopra 70 = ipercomprato, sotto 30 = ipervenduto. Lo score premia la distanza da 50.</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#16a34a"></div><div class="ml-label">40–65</div><div class="ml-desc">Zona trend ottimale</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#d97706"></div><div class="ml-label">&gt; 70</div><div class="ml-desc">Ipercomprato — attenzione</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#6b7280"></div><div class="ml-label">&lt; 30</div><div class="ml-desc">Ipervenduto</div></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-badge">5 pt</div>
+          <div class="metric-name">SAR Parabolico</div>
+          <div class="metric-desc">Stop and Reverse. Puntini sopra il prezzo = bearish, sotto = bullish. Utile per trailing stop — si accelera man mano che il trend matura (AF 0.02 → 0.20).</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#16a34a"></div><div class="ml-label">BULL</div><div class="ml-desc">Prezzo sopra SAR — +5 pt</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#dc2626"></div><div class="ml-label">BEAR</div><div class="ml-desc">Prezzo sotto SAR — 0 pt</div></div>
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-badge" style="background:#f3f4f6;color:#6b7280">Info</div>
+          <div class="metric-name">Bande di Bollinger (BB)</div>
+          <div class="metric-desc">SMA 20 ± 2 deviazioni standard. Non entra nello score direttamente ma rileva compressione volatilità: BB Width basso = "molla carica" — breakout imminente in arrivo.</div>
+          <div class="metric-levels">
+            <div class="metric-level"><div class="ml-dot" style="background:#d97706"></div><div class="ml-label">Width &lt; 0.05</div><div class="ml-desc">Compressione — breakout in arrivo</div></div>
+            <div class="metric-level"><div class="ml-dot" style="background:#6b7280"></div><div class="ml-label">Width &gt; 0.15</div><div class="ml-desc">Alta volatilità espansa</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="metrics-section">
+      <div class="metrics-section-title">📂 Sistema portafoglio — ciclo di vita</div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:12px;">
+        <div class="formula-box">
+Stop iniziale BUY  = prezzo_ingresso - ATR x 2
+Stop iniziale SELL = prezzo_ingresso + ATR x 2
+Trailing attivo se gain &gt; +3% → stop = prezzo_massimo x 0.95
+Chiusura: segnale diventa SELL/RANGING, oppure stop violato
+Max 5 posizioni per categoria · Score minimo apertura: 65
+        </div>
+        <div class="step-grid">
+          <div class="step-card"><div class="step-num">01</div><div class="step-title">🟢 Apertura BUY</div><div class="step-desc">Segnale BUY con score ≥ 65 e categoria non al limite (max 5 pos). Ingresso al prezzo di chiusura del giorno.</div></div>
+          <div class="step-card"><div class="step-num">02</div><div class="step-title">🛡 Stop ATR×2</div><div class="step-desc">Stop loss iniziale a 2 ATR sotto il prezzo di ingresso. Per ETF leva ATR×1.5. Protegge dai falsi breakout.</div></div>
+          <div class="step-card"><div class="step-num">03</div><div class="step-title">📈 Trailing -5%</div><div class="step-desc">Quando gain supera +3%, il sistema attiva il trailing stop al -5% dal massimo raggiunto. Lascia correre i profitti.</div></div>
+          <div class="step-card"><div class="step-num">04</div><div class="step-title">🔴 Chiusura</div><div class="step-desc">Segnale diventa SELL o RANGING, oppure il prezzo scende sotto lo stop. Performance registrata nel portafoglio.</div></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <div style="flex:1;min-width:140px;background:#dcfce7;border:1px solid #86efac;border-radius:8px;padding:12px 14px;text-align:center"><div style="font-size:20px;font-weight:700;color:#16a34a">≥ 65</div><div style="font-size:11px;color:#166534;margin-top:3px">Apre posizione</div></div>
+          <div style="flex:1;min-width:140px;background:#fef3c7;border:1px solid #fcd34d;border-radius:8px;padding:12px 14px;text-align:center"><div style="font-size:20px;font-weight:700;color:#d97706">40–64</div><div style="font-size:11px;color:#92400e;margin-top:3px">WATCH — monitorare</div></div>
+          <div style="flex:1;min-width:140px;background:#fee2e2;border:1px solid #fca5a5;border-radius:8px;padding:12px 14px;text-align:center"><div style="font-size:20px;font-weight:700;color:#dc2626">&lt; 40</div><div style="font-size:11px;color:#991b1b;margin-top:3px">Segnale debole</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">RAPTOR SCANNER · Giorgio Goldoni · Uso riservato · Non costituisce consulenza finanziaria</div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div><div class="modal-ticker" id="m-ticker">—</div><div class="modal-name" id="m-name">—</div></div>
+      <div class="modal-close" onclick="closeModalDirect()">✕</div>
+    </div>
+    <div class="modal-kpis" id="modal-kpis"></div>
+    <div class="modal-body">
+      <div class="chart-tabs">
+        <button class="chart-tab active" onclick="setChartMode('price',this)">Prezzo + Overlay</button>
+        <button class="chart-tab" onclick="setChartMode('er',this)">ER</button>
+        <button class="chart-tab" onclick="setChartMode('rsi',this)">RSI</button>
+        <button class="chart-tab" onclick="setChartMode('volume',this)">Volume</button>
+      </div>
+      <div class="chart-container"><canvas id="main-chart"></canvas></div>
+      <div class="ind-grid" id="ind-grid"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">RAPTOR SCANNER · ETF Intelligence Engine · Giorgio Goldoni · Uso riservato</div>
+
+<script>
+let allData=[],filteredData=[],signalFilter='ALL',catFilter='TUTTI';
+let sortKey='score',sortDir=-1,currentETF=null,mainChart=null,chartMode='price';
+let portfolioData=null;
+
+function showMainTab(id,el){
+  document.querySelectorAll('.main-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  if(el)el.classList.add('active');
+  document.getElementById('tab-'+id).classList.add('active');
+}
+
+async function loadData(){
+  try{
+    const r=await fetch('data/signals.json?t='+Date.now());
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const json=await r.json();
+    if(!json.signals?.length){showEmpty();return;}
+    allData=json.signals;
+    const t=json.meta?.generated_at;
+    if(t){const d=new Date(t);document.getElementById('nav-time').textContent=d.toLocaleDateString('it-IT')+' '+d.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});}
+    document.getElementById('nav-total').textContent=allData.length;
+    updateCounts();applyFilters();
+  }catch(e){showEmpty(e.message);}
+  try{
+    const r2=await fetch('data/portfolio.json?t='+Date.now());
+    if(r2.ok){portfolioData=await r2.json();renderPortfolio();}
+    else renderPortfolioEmpty();
+  }catch(e){renderPortfolioEmpty();}
+}
+
+function showEmpty(msg){
+  document.getElementById('etf-body').innerHTML='<tr><td colspan="11"><div class="empty-state"><div style="font-size:32px;margin-bottom:8px">⚙️</div><div>'+(msg||'Dati non disponibili')+'</div></div></td></tr>';
+}
+
+function updateCounts(){
+  const c={ALL:0,BUY:0,SELL:0,WATCH:0,RANGING:0};
+  allData.forEach(e=>{c.ALL++;c[e.signal]=(c[e.signal]||0)+1;});
+  ['all','buy','sell','watch','ranging'].forEach(k=>document.getElementById('cnt-'+k).textContent=c[k.toUpperCase()]);
+}
+
+function setSignalFilter(s){
+  signalFilter=s;
+  document.querySelectorAll('.stat-chip').forEach(c=>c.classList.remove('active'));
+  const map={ALL:'all',BUY:'buy',SELL:'sell',WATCH:'watch',RANGING:'ranging'};
+  document.querySelector('.stat-chip.'+map[s])?.classList.add('active');
+  applyFilters();
+}
+
+function setCategoryFilter(c,btn){
+  catFilter=c;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters(){
+  const q=document.getElementById('search-input').value.toLowerCase();
+  filteredData=allData.filter(e=>{
+    if(signalFilter!=='ALL'&&e.signal!==signalFilter)return false;
+    if(catFilter!=='TUTTI'&&e.categoria!==catFilter)return false;
+    if(q&&!e.ticker.toLowerCase().includes(q)&&!e.nome.toLowerCase().includes(q))return false;
+    return true;
+  });
+  sortData();renderTable();
+}
+
+function sortBy(key){
+  if(sortKey===key)sortDir*=-1;else{sortKey=key;sortDir=-1;}
+  document.querySelectorAll('thead th').forEach(th=>th.classList.remove('sort-asc','sort-desc'));
+  const idx=['signal','signal_date','ticker','categoria','price','chg_pct','er','rsi','adx','score','currency'];
+  const th=document.querySelectorAll('thead th')[idx.indexOf(key)];
+  if(th)th.classList.add(sortDir===1?'sort-asc':'sort-desc');
+  sortData();renderTable();
+}
+
+function sortData(){
+  const so={BUY:0,WATCH:1,RANGING:2,SELL:3};
+  filteredData.sort((a,b)=>{
+    let va=a[sortKey],vb=b[sortKey];
+    if(sortKey==='signal'){va=so[va]??9;vb=so[vb]??9;}
+    if(va==null)va=sortDir===1?Infinity:-Infinity;
+    if(vb==null)vb=sortDir===1?Infinity:-Infinity;
+    if(typeof va==='string')return va.localeCompare(vb)*sortDir;
+    return(va-vb)*sortDir;
+  });
+}
+
+function renderTable(){
+  const tbody=document.getElementById('etf-body');
+  if(!filteredData.length){tbody.innerHTML='<tr><td colspan="11"><div class="empty-state"><div style="font-size:32px">📭</div><div>Nessun ETF trovato</div></div></td></tr>';return;}
+  tbody.innerHTML=filteredData.map((e,i)=>{
+    const sig=e.signal||'RANGING';
+    const er=e.er!=null?e.er.toFixed(3):'—';
+    const erPct=e.er!=null?Math.min(100,e.er*200):0;
+    const score=e.score!=null?e.score:'—';
+    const chg=e.chg_pct;
+    const chgStr=chg!=null?(chg>0?'+':'')+chg.toFixed(2)+'%':'—';
+    const scoreNum=typeof score==='number'?score:0;
+    const ringColor=scoreNum>=65?'#16A34A':scoreNum>=40?'#D97706':'#DC2626';
+    const circum=2*Math.PI*11,dash=(scoreNum/100)*circum;
+    const ring='<svg class="score-ring" viewBox="0 0 28 28"><circle cx="14" cy="14" r="11" fill="none" stroke="#E5E7EB" stroke-width="2.5"/><circle cx="14" cy="14" r="11" fill="none" stroke="'+ringColor+'" stroke-width="2.5" stroke-dasharray="'+dash.toFixed(1)+' '+circum.toFixed(1)+'" stroke-linecap="round" transform="rotate(-90 14 14)"/></svg>';
+    const isShort=e.is_short?'<span class="cat-tag short-tag">SHORT</span>':'';
+    const isLev=e.is_leveraged?'<span class="cat-tag" style="background:#EFF6FF;color:#2563EB;border-color:#BFDBFE">LEVA</span>':'';
+    const icons={BUY:'🟢',SELL:'🔴',WATCH:'⚡',RANGING:'⚫'};
+    const sdDate=e.signal_date?e.signal_date.slice(5):'—';
+    const sdDays=e.signal_days!=null?'('+e.signal_days+'gg)':'';
+    const sigDateCell='<div class="sig-date-cell"><div class="sig-date-main '+sig+'">'+(icons[sig]||'●')+' '+sig+' <span style="font-weight:700;font-size:12px">'+sdDate+'</span></div><div class="sig-date-sub">'+sdDays+'</div></div>';
+    return '<tr onclick="openModal('+i+')">'
+      +'<td><span class="badge '+sig+'"><span class="badge-dot"></span>'+sig+'</span></td>'
+      +'<td>'+sigDateCell+'</td>'
+      +'<td><div class="ticker-cell"><span class="ticker-sym">'+e.ticker+'</span><span class="ticker-name">'+e.nome+'</span></div></td>'
+      +'<td><div style="display:flex;gap:4px;flex-wrap:wrap"><span class="cat-tag">'+e.categoria+'</span>'+isLev+isShort+'</div></td>'
+      +'<td class="price-cell">'+(e.price!=null?e.price.toFixed(2):'—')+'</td>'
+      +'<td class="mono-cell '+(chg>0?'chg-pos':chg<0?'chg-neg':'chg-neu')+'">'+chgStr+'</td>'
+      +'<td><div class="er-cell"><span class="er-val">'+er+'</span><div class="er-bar-wrap"><div class="er-bar-fill" style="width:'+erPct+'%"></div></div></div></td>'
+      +'<td class="mono-cell">'+(e.rsi!=null?e.rsi.toFixed(0):'—')+'</td>'
+      +'<td class="mono-cell">'+(e.adx!=null?e.adx.toFixed(0):'—')+'</td>'
+      +'<td><div class="score-cell"><span class="score-num" style="color:'+ringColor+'">'+score+'</span>'+ring+'</div></td>'
+      +'<td class="mono-cell" style="font-size:10px;color:var(--text2)">'+(e.currency||'—')+'</td>'
+      +'</tr>';
+  }).join('');
+}
+
+// PORTFOLIO
+const CAT_ICONS={'Leva Long':'⚡','Short':'🔻','Materie Prime':'🥇','Tematico':'🎨','Settoriale Mondo':'🌐','Settoriale USA':'🇺🇸','Settoriale Europa':'🇪🇺','Azionario':'📈','Obbligazionario':'💼','Monetario':'💰'};
+
+function renderPortfolio(){
+  document.getElementById('port-loading').style.display='none';
+  const d=portfolioData;
+  if(!d||!d.positions||!d.positions.length){renderPortfolioEmpty();return;}
+  document.getElementById('port-content').style.display='block';
+  const open=d.positions.filter(p=>p.status==='open');
+  const closed=d.positions.filter(p=>p.status==='closed');
+  const wins=closed.filter(p=>(p.gain_pct||0)>0).length;
+  const avgGain=closed.length?closed.reduce((s,p)=>s+(p.gain_pct||0),0)/closed.length:0;
+  document.getElementById('port-summary').innerHTML=[
+    {l:'Posizioni aperte',v:open.length,c:'var(--accent)'},
+    {l:'Posizioni chiuse',v:closed.length,c:'var(--text)'},
+    {l:'Win rate',v:closed.length?Math.round(wins/closed.length*100)+'%':'—',c:'var(--buy)'},
+    {l:'Gain medio',v:closed.length?(avgGain>=0?'+':'')+avgGain.toFixed(1)+'%':'—',c:avgGain>=0?'var(--buy)':'var(--sell)'},
+  ].map(k=>'<div class="port-kpi"><div class="port-kpi-label">'+k.l+'</div><div class="port-kpi-val" style="color:'+k.c+'">'+k.v+'</div></div>').join('');
+  const cats={};
+  d.positions.forEach(p=>{if(!cats[p.categoria])cats[p.categoria]=[];cats[p.categoria].push(p);});
+  document.getElementById('port-categories').innerHTML=Object.entries(cats).map(([cat,pos])=>{
+    const icon=CAT_ICONS[cat]||'📊';
+    const openN=pos.filter(p=>p.status==='open').length;
+    const closedN=pos.filter(p=>p.status==='closed').length;
+    return '<div class="cat-section"><div class="cat-title">'+icon+' '+cat+' <span>'+openN+' aperte · '+closedN+' chiuse</span></div><div class="positions-grid">'+[...pos.filter(p=>p.status==='open'),...pos.filter(p=>p.status==='closed').slice(0,5)].map(renderPosCard).join('')+'</div></div>';
+  }).join('');
+}
+
+function renderPosCard(p){
+  const isOpen=p.status==='open',isBuy=p.direction==='BUY';
+  const gain=p.gain_pct||0,gColor=gain>=0?'#16a34a':'#dc2626';
+  const gStr=(gain>=0?'+':'')+gain.toFixed(2)+'%';
+  const cardClass=isOpen?(isBuy?'pos-buy':'pos-sell'):'pos-closed';
+  const dirBadge=isBuy
+    ?'<span style="background:#dcfce7;color:#16a34a;border:1px solid #86efac;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700">🟢 BUY</span>'
+    :'<span style="background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700">🔴 SELL</span>';
+  const statusBadge=isOpen
+    ?'<span style="background:#dbeafe;color:#1d4ed8;border:1px solid #bfdbfe;padding:2px 8px;border-radius:8px;font-size:9px">APERTA</span>'
+    :'<span style="background:#f3f4f6;color:#6b7280;border:1px solid #d1d5db;padding:2px 8px;border-radius:8px;font-size:9px">CHIUSA</span>';
+  const bw=Math.min(100,Math.abs(gain)*5);
+  const trailing=p.trailing_active?'✅ Trailing attivo':'⏳ Stop ATR×2';
+  return '<div class="pos-card '+cardClass+'">'
+    +'<div class="pos-header"><div><div class="pos-ticker">'+p.ticker+'</div><div class="pos-name">'+p.nome+'</div></div>'
+    +'<div style="display:flex;flex-direction:column;gap:3px;align-items:flex-end">'+dirBadge+statusBadge+'</div></div>'
+    +'<div class="pos-body"><div class="pos-metrics">'
+    +'<div class="pos-metric"><div class="pos-metric-label">Ingresso</div><div class="pos-metric-val">'+(p.entry_price?.toFixed(4)||'—')+'</div></div>'
+    +'<div class="pos-metric"><div class="pos-metric-label">Attuale</div><div class="pos-metric-val" style="color:'+gColor+'">'+(p.current_price?.toFixed(4)||'—')+'</div></div>'
+    +'<div class="pos-metric"><div class="pos-metric-label">Gain %</div><div class="pos-metric-val" style="color:'+gColor+'">'+gStr+'</div></div>'
+    +'</div><div class="pos-stops">'
+    +'<div class="pos-stop-item"><div class="pos-stop-label">Stop</div><div class="pos-stop-val" style="color:#dc2626">'+(p.current_stop?.toFixed(4)||'—')+'</div></div>'
+    +'<div class="pos-stop-item"><div class="pos-stop-label">Score</div><div class="pos-stop-val" style="color:#2563eb">'+(p.score||'—')+'</div></div>'
+    +'<div class="pos-stop-item"><div class="pos-stop-label">Giorni</div><div class="pos-stop-val">'+(p.days_held||0)+'</div></div>'
+    +'</div><div class="pos-bar-wrap"><div class="pos-bar-fill" style="width:'+bw+'%;background:'+gColor+'"></div></div></div>'
+    +'<div class="pos-footer"><span>'+trailing+'</span><span>📅 '+(p.entry_date||'—')+'</span></div></div>';
+}
+
+function renderPortfolioEmpty(){
+  document.getElementById('port-loading').style.display='none';
+  document.getElementById('port-empty').style.display='block';
+}
+
+// MODAL
+function openModal(idx){
+  currentETF=filteredData[idx];
+  if(!currentETF)return;
+  const e=currentETF;
+  document.getElementById('m-ticker').textContent=e.ticker;
+  document.getElementById('m-name').textContent=e.nome+' · '+e.categoria+' · '+(e.currency||'')+' · Score: '+e.score;
+  const kpis=[
+    {label:'Segnale',val:e.signal,cls:sigClass(e.signal)},
+    {label:'Score',val:(e.score||'—')+'/100',cls:''},
+    {label:'Prezzo',val:e.price!=null?e.price.toFixed(4):'—',cls:''},
+    {label:'Var %',val:e.chg_pct!=null?(e.chg_pct>0?'+':'')+e.chg_pct.toFixed(2)+'%':'—',cls:e.chg_pct>0?'pos':e.chg_pct<0?'neg':''},
+    {label:'ER',val:e.er!=null?e.er.toFixed(3):'—',cls:''},
+    {label:'RSI 14',val:e.rsi!=null?e.rsi.toFixed(1):'—',cls:rsiClass(e.rsi)},
+    {label:'ADX 14',val:e.adx!=null?e.adx.toFixed(1):'—',cls:''},
+    {label:'Mom 3m',val:e.mom3m!=null?(e.mom3m>0?'+':'')+e.mom3m.toFixed(1)+'%':'—',cls:e.mom3m>0?'pos':e.mom3m<0?'neg':''},
+    {label:'KAMA',val:e.kama_bull!=null?(e.kama_bull?'BULL':'BEAR'):'—',cls:e.kama_bull?'pos':'neg'},
+    {label:'Supertrend',val:e.supertrend_dir===1?'BULL':'BEAR',cls:e.supertrend_dir===1?'pos':'neg'},
+    {label:'SMA 200',val:e.above_sma200!=null?(e.above_sma200?'SOPRA':'SOTTO'):'—',cls:e.above_sma200?'pos':'neg'},
+    {label:'Vol Ratio',val:e.vol_ratio!=null?e.vol_ratio.toFixed(2)+'x':'—',cls:e.vol_ratio>1.3?'warn':''},
+  ];
+  document.getElementById('modal-kpis').innerHTML=kpis.map(k=>'<div class="kpi"><div class="kpi-label">'+k.label+'</div><div class="kpi-val '+k.cls+'">'+k.val+'</div></div>').join('');
+  const inds=[
+    {label:'BB Width',val:e.bb_width!=null?e.bb_width.toFixed(4):'—',sub:e.bb_width<0.05?'⚡ Compressione':''},
+    {label:'ATR 14',val:e.atr!=null?e.atr.toFixed(4):'—',sub:'Volatilità'},
+    {label:'Mom 1m',val:e.mom1m!=null?(e.mom1m>0?'+':'')+e.mom1m.toFixed(1)+'%':'—',sub:'Rolling 21gg'},
+    {label:'Mom 6m',val:e.mom6m!=null?(e.mom6m>0?'+':'')+e.mom6m.toFixed(1)+'%':'—',sub:'Rolling 126gg'},
+    {label:'SAR',val:e.sar_bull!=null?(e.sar_bull?'↑ Bull':'↓ Bear'):'—',sub:'Parabolico'},
+    {label:'KAMA State',val:e.kama_state||'—',sub:'Kaufman'},
+    {label:'EMA 20',val:e.ema20!=null?e.ema20.toFixed(2):'—',sub:''},
+    {label:'EMA 50',val:e.ema50!=null?e.ema50.toFixed(2):'—',sub:''},
+    {label:'SMA 200',val:e.sma200!=null?e.sma200.toFixed(2):'—',sub:'Filtro Faber'},
+    {label:'Segnale il',val:e.signal_date||'—',sub:e.signal_days!=null?e.signal_days+'gg fa':''},
+  ];
+  document.getElementById('ind-grid').innerHTML=inds.map(i=>'<div class="ind-card"><div class="ind-card-label">'+i.label+'</div><div class="ind-card-val">'+i.val+'</div>'+(i.sub?'<div class="ind-card-sub">'+i.sub+'</div>':'')+'</div>').join('');
+  chartMode='price';
+  document.querySelectorAll('.chart-tab').forEach((t,i)=>t.classList.toggle('active',i===0));
+  document.getElementById('modal-overlay').classList.add('open');
+  setTimeout(()=>renderChart(),50);
+}
+function sigClass(s){return{BUY:'pos',SELL:'neg',WATCH:'warn',RANGING:''}[s]||'';}
+function rsiClass(v){if(v==null)return'';if(v>70)return'neg';if(v<30)return'pos';return'';}
+function closeModal(e){if(e.target===document.getElementById('modal-overlay'))closeModalDirect();}
+function closeModalDirect(){document.getElementById('modal-overlay').classList.remove('open');if(mainChart){mainChart.destroy();mainChart=null;}}
+function setChartMode(mode,btn){
+  chartMode=mode;
+  document.querySelectorAll('.chart-tab').forEach(t=>t.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  if(mainChart){mainChart.destroy();mainChart=null;}
+  renderChart();
+}
+function renderChart(){
+  const e=currentETF;if(!e?.chart)return;
+  const ctx=document.getElementById('main-chart').getContext('2d');
+  if(mainChart)mainChart.destroy();
+  const c=e.chart,labels=c.dates||[],closes=c.closes||[];
+  const cO={responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:true,labels:{font:{family:'DM Mono',size:10},color:'#6B7280',boxWidth:16,padding:10,filter:item=>item.text!=='BB Lower'}},tooltip:{backgroundColor:'#0D1B2A',titleFont:{family:'DM Mono',size:11},bodyFont:{family:'DM Mono',size:11},callbacks:{label:ctx=>ctx.parsed.y==null?null:' '+ctx.dataset.label+': '+ctx.parsed.y.toFixed(4)}}},scales:{x:{ticks:{font:{family:'DM Mono',size:9},color:'#9CA3AF',maxTicksLimit:8,maxRotation:0},grid:{color:'rgba(0,0,0,.04)'}},y:{position:'right',ticks:{font:{family:'DM Mono',size:9},color:'#9CA3AF'},grid:{color:'rgba(0,0,0,.04)'}}}};
+  if(chartMode==='price'){
+    const bgP={id:'bg',beforeDraw(chart){const{ctx:x,chartArea:a,scales:s}=chart;if(!a)return;(c.st_dir||[]).forEach((d,i)=>{const x0=s.x.getPixelForValue(i),x1=s.x.getPixelForValue(i+1);x.fillStyle=d===1?'rgba(22,163,74,.04)':'rgba(220,38,38,.04)';x.fillRect(x0,a.top,x1-x0,a.height);});}};
+    mainChart=new Chart(ctx,{type:'line',plugins:[bgP],data:{labels,datasets:[
+      {label:'Prezzo',data:closes,borderColor:'#1A1A2A',borderWidth:1.5,pointRadius:0,tension:.1,fill:false},
+      {label:'KAMA Fast',data:c.kama_fast,borderColor:'#2563EB',borderWidth:1.5,pointRadius:0,tension:.2,fill:false},
+      {label:'KAMA Slow',data:c.kama_slow,borderColor:'#DC2626',borderWidth:1.5,pointRadius:0,tension:.2,fill:false,borderDash:[4,3]},
+      {label:'BB Upper',data:c.bb_upper,borderColor:'rgba(107,114,128,.4)',borderWidth:1,pointRadius:0,fill:'+1',backgroundColor:'rgba(107,114,128,.06)',borderDash:[3,3]},
+      {label:'BB Lower',data:c.bb_lower,borderColor:'rgba(107,114,128,.4)',borderWidth:1,pointRadius:0,fill:false,borderDash:[3,3]},
+      {label:'Supertrend',data:c.supertrend,borderColor:'#D97706',borderWidth:1.5,pointRadius:0,fill:false,borderDash:[6,2]},
+      {label:'SAR',data:c.sar,borderColor:'transparent',pointRadius:3,pointStyle:'circle',pointBackgroundColor:(c.st_dir||[]).map(d=>d===1?'rgba(22,163,74,.6)':'rgba(220,38,38,.6)'),showLine:false},
+      {label:'BUY',data:labels.map(l=>{const s=(c.buy_signals||[]).find(x=>x.date===l);return s?s.price:null;}),borderColor:'transparent',pointRadius:8,pointStyle:'triangle',pointBackgroundColor:'#16A34A',showLine:false},
+      {label:'SELL',data:labels.map(l=>{const s=(c.sell_signals||[]).find(x=>x.date===l);return s?s.price:null;}),borderColor:'transparent',pointRadius:8,pointStyle:'triangle',pointBackgroundColor:'#DC2626',rotation:180,showLine:false},
+    ]},options:cO});
+  }else if(chartMode==='er'){
+    const tl=e.is_leveraged?.25:.20,th=e.is_leveraged?.30:.25;
+    mainChart=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:'ER',data:c.er,borderColor:'#2563EB',borderWidth:1.5,pointRadius:0,fill:false,tension:.1},{label:'Ranging',data:labels.map(()=>tl),borderColor:'#DC2626',borderWidth:1,borderDash:[4,3],pointRadius:0,fill:false},{label:'Trending',data:labels.map(()=>th),borderColor:'#16A34A',borderWidth:1,borderDash:[4,3],pointRadius:0,fill:false}]},options:cO});
+  }else if(chartMode==='rsi'){
+    mainChart=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:'RSI 14',data:c.rsi,borderColor:'#8B5CF6',borderWidth:1.5,pointRadius:0,fill:false,tension:.1},{label:'70',data:labels.map(()=>70),borderColor:'#DC2626',borderWidth:1,borderDash:[4,3],pointRadius:0,fill:false},{label:'30',data:labels.map(()=>30),borderColor:'#16A34A',borderWidth:1,borderDash:[4,3],pointRadius:0,fill:false}]},options:{...cO,scales:{...cO.scales,y:{...cO.scales.y,min:0,max:100}}}});
+  }else if(chartMode==='volume'){
+    mainChart=new Chart(ctx,{type:'bar',data:{labels,datasets:[{label:'Volume Ratio',data:c.vol_ratio,backgroundColor:(c.vol_ratio||[]).map(v=>v>1.3?'rgba(217,119,6,.6)':'rgba(37,99,235,.4)'),borderRadius:2},{label:'Anomalia (1.3)',data:labels.map(()=>1.3),type:'line',borderColor:'#D97706',borderWidth:1,borderDash:[4,3],pointRadius:0,fill:false}]},options:cO});
+  }
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModalDirect();});
+loadData();
+setInterval(loadData,5*60*1000);
+</script>
+</body>
+</html>
