@@ -690,17 +690,17 @@
       "status": "open",
       "entry_date": "2026-04-30",
       "entry_price": 95.6,
-      "current_price": 101.2,
+      "current_price": 101.3,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
       "initial_stop": 90.878,
-      "current_stop": 96.14,
-      "max_price": 101.2,
+      "current_stop": 96.235,
+      "max_price": 101.3,
       "min_price": 95.6,
       "atr_entry": 3.148,
       "score": 90,
-      "gain_pct": 5.858,
+      "gain_pct": 5.962,
       "days_held": 1,
       "trailing_active": true
     },
@@ -3103,5 +3103,5 @@
       "trailing_active": false
     }
   ],
-  "updated": "2026-05-01T19:54:26.084061+00:00"
+  "updated": "2026-05-01T23:02:28.917559+00:00"
 }
