@@ -19,7 +19,7 @@
       "atr_entry": 40.1933,
       "score": 73,
       "gain_pct": 19.173,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 1.9548,
       "score": 85,
       "gain_pct": 12.275,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -63,7 +63,7 @@
       "atr_entry": 3.3178,
       "score": 93,
       "gain_pct": 14.859,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 0.602,
       "score": 67,
       "gain_pct": 6.7,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 0.5589,
       "score": 70,
       "gain_pct": 20.37,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 1.9022,
       "score": 94,
       "gain_pct": 11.26,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 2.2739,
       "score": 94,
       "gain_pct": 11.998,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 0.4904,
       "score": 90,
       "gain_pct": 3.408,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 1.8637,
       "score": 87,
       "gain_pct": 3.191,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 6.1627,
       "score": 87,
       "gain_pct": 3.478,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 1.2639,
       "score": 94,
       "gain_pct": 5.178,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 7.3528,
       "score": 94,
       "gain_pct": 10.387,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": true
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.184,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": false
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.171,
-      "days_held": 31,
+      "days_held": 32,
       "trailing_active": false
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 0.1911,
       "score": 67,
       "gain_pct": 10.544,
-      "days_held": 20,
+      "days_held": 21,
       "trailing_active": true
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 0.4785,
       "score": 85,
       "gain_pct": 4.184,
-      "days_held": 14,
+      "days_held": 15,
       "trailing_active": true
     },
     {
@@ -371,7 +371,7 @@
       "atr_entry": 0.5668,
       "score": 80,
       "gain_pct": -0.252,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": false
     },
     {
@@ -393,7 +393,7 @@
       "atr_entry": 0.4752,
       "score": 84,
       "gain_pct": 1.807,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -415,7 +415,7 @@
       "atr_entry": 0.0815,
       "score": 81,
       "gain_pct": -2.168,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -437,7 +437,7 @@
       "atr_entry": 13.9559,
       "score": 72,
       "gain_pct": -1.857,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -459,7 +459,7 @@
       "atr_entry": 0.1385,
       "score": 93,
       "gain_pct": -0.482,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -481,7 +481,7 @@
       "atr_entry": 0.5374,
       "score": 82,
       "gain_pct": 0.073,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -503,7 +503,7 @@
       "atr_entry": 1.9954,
       "score": 86,
       "gain_pct": 0.824,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -525,7 +525,7 @@
       "atr_entry": 2.2124,
       "score": 61,
       "gain_pct": -0.559,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -547,7 +547,7 @@
       "atr_entry": 0.5075,
       "score": 80,
       "gain_pct": -0.174,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -569,7 +569,7 @@
       "atr_entry": 3.5546,
       "score": 92,
       "gain_pct": -4.41,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -591,7 +591,7 @@
       "atr_entry": 4.1724,
       "score": 92,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -613,29 +613,7 @@
       "atr_entry": 1.1766,
       "score": 91,
       "gain_pct": 0.0,
-      "days_held": 0,
-      "trailing_active": false
-    },
-    {
-      "ticker": "STSL.L",
-      "nome": "Leverage Shares 2x Short Tesla",
-      "categoria": "Short",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-05-18",
-      "entry_price": 1682.0,
-      "current_price": 1682.0,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 1502.8244,
-      "current_stop": 1502.8244,
-      "max_price": 1682.0,
-      "min_price": 1682.0,
-      "atr_entry": 119.4504,
-      "score": 99,
-      "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -657,7 +635,7 @@
       "atr_entry": 0.4063,
       "score": 78,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -679,7 +657,7 @@
       "atr_entry": 0.4599,
       "score": 83,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -701,7 +679,29 @@
       "atr_entry": 0.7511,
       "score": 79,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "STSL.L",
+      "nome": "Leverage Shares 2x Short Tesla",
+      "categoria": "Short",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-05-18",
+      "entry_price": 1682.0,
+      "current_price": 16.82,
+      "close_date": "2026-05-19",
+      "close_price": 16.82,
+      "close_reason": "signal_reversal",
+      "initial_stop": 1502.8244,
+      "current_stop": 1502.8244,
+      "max_price": 1682.0,
+      "min_price": 1682.0,
+      "atr_entry": 119.4504,
+      "score": 33,
+      "gain_pct": -99.0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -3981,29 +3981,7 @@
       "gain_pct": -3.917,
       "days_held": 3,
       "trailing_active": false
-    },
-    {
-      "ticker": "EXV7.DE",
-      "nome": "iShares STOXX Europe 600 Oil & Gas",
-      "categoria": "Settoriale Europa",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-04-27",
-      "entry_price": 121.0,
-      "current_price": 120.9,
-      "close_date": "2026-04-27",
-      "close_price": 120.9,
-      "close_reason": "signal_reversal",
-      "initial_stop": 118.4138,
-      "current_stop": 118.4138,
-      "max_price": 121.0,
-      "min_price": 121.0,
-      "atr_entry": 1.2931,
-      "score": 79,
-      "gain_pct": -0.083,
-      "days_held": 0,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-05-18T16:51:58.913867+00:00"
+  "updated": "2026-05-19T05:11:35.878163+00:00"
 }
