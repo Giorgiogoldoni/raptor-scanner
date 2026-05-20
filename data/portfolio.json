@@ -19,7 +19,7 @@
       "atr_entry": 3.3178,
       "score": 88,
       "gain_pct": 14.471,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 1.9022,
       "score": 90,
       "gain_pct": 10.857,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -63,7 +63,7 @@
       "atr_entry": 2.2739,
       "score": 92,
       "gain_pct": 12.028,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 0.4904,
       "score": 66,
       "gain_pct": 3.361,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 1.8637,
       "score": 42,
       "gain_pct": 3.035,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 6.1627,
       "score": 42,
       "gain_pct": 3.279,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 1.2639,
       "score": 70,
       "gain_pct": 4.998,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 7.3528,
       "score": 69,
       "gain_pct": 9.961,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": true
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.181,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": false
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.169,
-      "days_held": 32,
+      "days_held": 33,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.4785,
       "score": 84,
       "gain_pct": 4.879,
-      "days_held": 15,
+      "days_held": 16,
       "trailing_active": true
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 0.4752,
       "score": 92,
       "gain_pct": 3.552,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": true
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 13.9559,
       "score": 46,
       "gain_pct": -3.88,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 0.1385,
       "score": 93,
       "gain_pct": -0.559,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 0.5374,
       "score": 91,
       "gain_pct": 1.674,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 1.9954,
       "score": 82,
       "gain_pct": 1.354,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -371,7 +371,7 @@
       "atr_entry": 0.5075,
       "score": 84,
       "gain_pct": 0.119,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -393,7 +393,7 @@
       "atr_entry": 3.5546,
       "score": 91,
       "gain_pct": -6.041,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -415,7 +415,7 @@
       "atr_entry": 4.1724,
       "score": 92,
       "gain_pct": -1.336,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -437,7 +437,7 @@
       "atr_entry": 1.1766,
       "score": 97,
       "gain_pct": 0.797,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -459,7 +459,7 @@
       "atr_entry": 0.4063,
       "score": 81,
       "gain_pct": 0.429,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -481,7 +481,7 @@
       "atr_entry": 0.5437,
       "score": 84,
       "gain_pct": 0.744,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -503,7 +503,7 @@
       "atr_entry": 0.5631,
       "score": 87,
       "gain_pct": 0.042,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -525,7 +525,7 @@
       "atr_entry": 0.4798,
       "score": 82,
       "gain_pct": 0.083,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -547,7 +547,7 @@
       "atr_entry": 0.0247,
       "score": 95,
       "gain_pct": -0.069,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -569,7 +569,7 @@
       "atr_entry": 0.1328,
       "score": 81,
       "gain_pct": -0.138,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -591,7 +591,7 @@
       "atr_entry": 0.4883,
       "score": 78,
       "gain_pct": -0.247,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -613,7 +613,7 @@
       "atr_entry": 0.9459,
       "score": 81,
       "gain_pct": 0.155,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -635,29 +635,7 @@
       "atr_entry": 1.3146,
       "score": 98,
       "gain_pct": 0.0,
-      "days_held": 0,
-      "trailing_active": false
-    },
-    {
-      "ticker": "SNVD.L",
-      "nome": "Leverage Shares 2x Short Nvidia",
-      "categoria": "Short",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-05-19",
-      "entry_price": 1072.0,
-      "current_price": 1072.0,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 957.6085,
-      "current_stop": 957.6085,
-      "max_price": 1072.0,
-      "min_price": 1072.0,
-      "atr_entry": 76.261,
-      "score": 100,
-      "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -679,7 +657,51 @@
       "atr_entry": 0.4433,
       "score": 84,
       "gain_pct": 0.0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "BCOM.DE",
+      "nome": "iShares Bloomberg Enhanced Roll Commodity",
+      "categoria": "Materie Prime",
+      "direction": "BUY",
+      "status": "open",
+      "entry_date": "2026-05-20",
+      "entry_price": 18.218,
+      "current_price": 18.218,
+      "close_date": null,
+      "close_price": null,
+      "close_reason": null,
+      "initial_stop": 17.6578,
+      "current_stop": 17.6578,
+      "max_price": 18.218,
+      "min_price": 18.218,
+      "atr_entry": 0.2801,
+      "score": 83,
+      "gain_pct": 0.0,
       "days_held": 0,
+      "trailing_active": false
+    },
+    {
+      "ticker": "SNVD.L",
+      "nome": "Leverage Shares 2x Short Nvidia",
+      "categoria": "Short",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-05-19",
+      "entry_price": 1072.0,
+      "current_price": 10.72,
+      "close_date": "2026-05-20",
+      "close_price": 10.72,
+      "close_reason": "signal_reversal",
+      "initial_stop": 957.6085,
+      "current_stop": 957.6085,
+      "max_price": 1072.0,
+      "min_price": 1072.0,
+      "atr_entry": 76.261,
+      "score": 21,
+      "gain_pct": -99.0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -3959,29 +3981,7 @@
       "gain_pct": -2.424,
       "days_held": 11,
       "trailing_active": false
-    },
-    {
-      "ticker": "EXV3.DE",
-      "nome": "iShares STOXX Europe 600 Technology",
-      "categoria": "Settoriale Europa",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-04-17",
-      "entry_price": 85.91,
-      "current_price": 83.58,
-      "close_date": "2026-04-28",
-      "close_price": 83.58,
-      "close_reason": "signal_reversal",
-      "initial_stop": 81.6054,
-      "current_stop": 81.6054,
-      "max_price": 86.24,
-      "min_price": 85.91,
-      "atr_entry": 2.1523,
-      "score": 55,
-      "gain_pct": -2.712,
-      "days_held": 11,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-05-19T16:53:12.306338+00:00"
+  "updated": "2026-05-20T05:14:22.173787+00:00"
 }
