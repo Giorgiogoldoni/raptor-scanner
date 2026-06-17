@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 93,
       "gain_pct": 0.34,
-      "days_held": 60,
+      "days_held": 61,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.317,
-      "days_held": 60,
+      "days_held": 61,
       "trailing_active": false
     },
     {
@@ -63,7 +63,7 @@
       "atr_entry": 0.6401,
       "score": 89,
       "gain_pct": 1.485,
-      "days_held": 19,
+      "days_held": 20,
       "trailing_active": false
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 0.4838,
       "score": 91,
       "gain_pct": 0.209,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": false
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 0.4155,
       "score": 80,
       "gain_pct": -0.263,
-      "days_held": 8,
+      "days_held": 9,
       "trailing_active": false
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 1.525,
       "score": 85,
       "gain_pct": 0.512,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 0.7529,
       "score": 79,
       "gain_pct": -0.061,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -171,9 +171,9 @@
       "max_price": 50.03,
       "min_price": 49.83,
       "atr_entry": 0.6429,
-      "score": 90,
+      "score": 91,
       "gain_pct": -1.013,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 0.3937,
       "score": 93,
       "gain_pct": 3.612,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 0.532,
       "score": 93,
       "gain_pct": 2.749,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.602,
       "score": 91,
       "gain_pct": -0.084,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 0.4995,
       "score": 91,
       "gain_pct": -0.359,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.4765,
       "score": 92,
       "gain_pct": 0.0,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -294,7 +294,7 @@
       "status": "open",
       "entry_date": "2026-06-12",
       "entry_price": 134.115,
-      "current_price": 134.48,
+      "current_price": 134.41,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -304,8 +304,8 @@
       "min_price": 134.115,
       "atr_entry": 0.4264,
       "score": 79,
-      "gain_pct": 0.272,
-      "days_held": 4,
+      "gain_pct": 0.22,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 0.1663,
       "score": 72,
       "gain_pct": 0.11,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 0.388,
       "score": 79,
       "gain_pct": -0.574,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -371,7 +371,7 @@
       "atr_entry": 0.5447,
       "score": 84,
       "gain_pct": 1.143,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -393,7 +393,7 @@
       "atr_entry": 0.5009,
       "score": 95,
       "gain_pct": 1.852,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -415,7 +415,7 @@
       "atr_entry": 0.8112,
       "score": 86,
       "gain_pct": -0.577,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -437,7 +437,7 @@
       "atr_entry": 0.8749,
       "score": 89,
       "gain_pct": 1.215,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -459,7 +459,7 @@
       "atr_entry": 0.7518,
       "score": 89,
       "gain_pct": 1.33,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -481,7 +481,7 @@
       "atr_entry": 1.6422,
       "score": 40,
       "gain_pct": -1.068,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -503,7 +503,7 @@
       "atr_entry": 3.7276,
       "score": 85,
       "gain_pct": -0.208,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -525,7 +525,7 @@
       "atr_entry": 0.4757,
       "score": 86,
       "gain_pct": -0.239,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -547,7 +547,7 @@
       "atr_entry": 0.5093,
       "score": 87,
       "gain_pct": -0.12,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -569,7 +569,7 @@
       "atr_entry": 2.0165,
       "score": 84,
       "gain_pct": -0.41,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -591,7 +591,7 @@
       "atr_entry": 0.6078,
       "score": 90,
       "gain_pct": 0.053,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -613,29 +613,7 @@
       "atr_entry": 0.9124,
       "score": 78,
       "gain_pct": 0.156,
-      "days_held": 1,
-      "trailing_active": false
-    },
-    {
-      "ticker": "STSL.L",
-      "nome": "Leverage Shares 2x Short Tesla",
-      "categoria": "Short",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-06-16",
-      "entry_price": 1687.5,
-      "current_price": 1670.5,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 1507.8416,
-      "current_stop": 1507.8416,
-      "max_price": 1687.5,
-      "min_price": 1687.5,
-      "atr_entry": 119.7723,
-      "score": 97,
-      "gain_pct": -1.007,
-      "days_held": 0,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -657,7 +635,7 @@
       "atr_entry": 0.8192,
       "score": 81,
       "gain_pct": 0.288,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -679,7 +657,7 @@
       "atr_entry": 0.1151,
       "score": 82,
       "gain_pct": 0.019,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -701,7 +679,7 @@
       "atr_entry": 5.1568,
       "score": 70,
       "gain_pct": -1.697,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -721,9 +699,9 @@
       "max_price": 75.14,
       "min_price": 74.81,
       "atr_entry": 0.9427,
-      "score": 83,
+      "score": 84,
       "gain_pct": 0.441,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -745,7 +723,7 @@
       "atr_entry": 2.0269,
       "score": 84,
       "gain_pct": -0.091,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -767,29 +745,7 @@
       "atr_entry": 20.208,
       "score": 84,
       "gain_pct": 0.0,
-      "days_held": 0,
-      "trailing_active": false
-    },
-    {
-      "ticker": "SNVD.L",
-      "nome": "Leverage Shares 2x Short Nvidia",
-      "categoria": "Short",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-06-16",
-      "entry_price": 1114.0,
-      "current_price": 1114.0,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 995.9407,
-      "current_stop": 995.9407,
-      "max_price": 1114.0,
-      "min_price": 1114.0,
-      "atr_entry": 78.7062,
-      "score": 97,
-      "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -811,7 +767,7 @@
       "atr_entry": 1.2232,
       "score": 83,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -833,7 +789,73 @@
       "atr_entry": 1.723,
       "score": 88,
       "gain_pct": 0.0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "XDWU.DE",
+      "nome": "Xtrackers MSCI World Utilities",
+      "categoria": "Settoriale Mondo",
+      "direction": "BUY",
+      "status": "open",
+      "entry_date": "2026-06-17",
+      "entry_price": 41.865,
+      "current_price": 41.865,
+      "close_date": null,
+      "close_price": null,
+      "close_reason": null,
+      "initial_stop": 40.8776,
+      "current_stop": 40.8776,
+      "max_price": 41.865,
+      "min_price": 41.865,
+      "atr_entry": 0.4937,
+      "score": 85,
+      "gain_pct": 0.0,
       "days_held": 0,
+      "trailing_active": false
+    },
+    {
+      "ticker": "STSL.L",
+      "nome": "Leverage Shares 2x Short Tesla",
+      "categoria": "Short",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-06-16",
+      "entry_price": 1687.5,
+      "current_price": 16.945,
+      "close_date": "2026-06-17",
+      "close_price": 16.945,
+      "close_reason": "stop_loss",
+      "initial_stop": 1507.8416,
+      "current_stop": 1507.8416,
+      "max_price": 1687.5,
+      "min_price": 1687.5,
+      "atr_entry": 119.7723,
+      "score": 40,
+      "gain_pct": -98.996,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "SNVD.L",
+      "nome": "Leverage Shares 2x Short Nvidia",
+      "categoria": "Short",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-06-16",
+      "entry_price": 1114.0,
+      "current_price": 11.27,
+      "close_date": "2026-06-17",
+      "close_price": 11.27,
+      "close_reason": "stop_loss",
+      "initial_stop": 995.9407,
+      "current_stop": 995.9407,
+      "max_price": 1114.0,
+      "min_price": 1114.0,
+      "atr_entry": 78.7062,
+      "score": 50,
+      "gain_pct": -98.988,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -4091,51 +4113,7 @@
       "gain_pct": -4.195,
       "days_held": 0,
       "trailing_active": false
-    },
-    {
-      "ticker": "EXV1.DE",
-      "nome": "iShares STOXX Europe 600 Banks",
-      "categoria": "Settoriale Europa",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-06-04",
-      "entry_price": 37.52,
-      "current_price": 37.34,
-      "close_date": "2026-06-04",
-      "close_price": 37.34,
-      "close_reason": "signal_reversal",
-      "initial_stop": 36.1506,
-      "current_stop": 36.1506,
-      "max_price": 37.52,
-      "min_price": 37.52,
-      "atr_entry": 0.6847,
-      "score": 77,
-      "gain_pct": -0.48,
-      "days_held": 0,
-      "trailing_active": false
-    },
-    {
-      "ticker": "EXV5.DE",
-      "nome": "iShares STOXX Europe 600 Utilities",
-      "categoria": "Settoriale Europa",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-05-28",
-      "entry_price": 43.76,
-      "current_price": 42.49,
-      "close_date": "2026-06-04",
-      "close_price": 42.49,
-      "close_reason": "signal_reversal",
-      "initial_stop": 42.1312,
-      "current_stop": 42.1312,
-      "max_price": 44.37,
-      "min_price": 43.76,
-      "atr_entry": 0.8144,
-      "score": 48,
-      "gain_pct": -2.902,
-      "days_held": 7,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-06-16T23:24:53.772243+00:00"
+  "updated": "2026-06-17T06:21:40.149993+00:00"
 }
