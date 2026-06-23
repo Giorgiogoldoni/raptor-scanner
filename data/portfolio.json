@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 94,
       "gain_pct": 0.413,
-      "days_held": 66,
+      "days_held": 67,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.344,
-      "days_held": 66,
+      "days_held": 67,
       "trailing_active": false
     },
     {
@@ -63,7 +63,7 @@
       "atr_entry": 0.6401,
       "score": 94,
       "gain_pct": 2.077,
-      "days_held": 25,
+      "days_held": 26,
       "trailing_active": false
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 0.4155,
       "score": 88,
       "gain_pct": 0.943,
-      "days_held": 14,
+      "days_held": 15,
       "trailing_active": false
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 1.525,
       "score": 92,
       "gain_pct": 1.529,
-      "days_held": 13,
+      "days_held": 14,
       "trailing_active": false
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 0.7529,
       "score": 92,
       "gain_pct": 1.412,
-      "days_held": 13,
+      "days_held": 14,
       "trailing_active": false
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 0.3937,
       "score": 95,
       "gain_pct": 5.253,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": true
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 0.532,
       "score": 94,
       "gain_pct": 3.753,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": true
     },
     {
@@ -184,7 +184,7 @@
       "status": "open",
       "entry_date": "2026-06-12",
       "entry_price": 134.115,
-      "current_price": 134.135,
+      "current_price": 134.405,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -193,9 +193,9 @@
       "max_price": 134.625,
       "min_price": 134.115,
       "atr_entry": 0.4264,
-      "score": 82,
-      "gain_pct": 0.015,
-      "days_held": 10,
+      "score": 89,
+      "gain_pct": 0.216,
+      "days_held": 11,
       "trailing_active": false
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 0.5447,
       "score": 93,
       "gain_pct": 1.12,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.5009,
       "score": 96,
       "gain_pct": 2.049,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 0.8749,
       "score": 94,
       "gain_pct": 3.569,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": true
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.7518,
       "score": 97,
       "gain_pct": 4.758,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": true
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 3.7276,
       "score": 94,
       "gain_pct": 0.303,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 0.4757,
       "score": 94,
       "gain_pct": 0.452,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 0.6078,
       "score": 94,
       "gain_pct": 0.277,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -371,7 +371,7 @@
       "atr_entry": 0.9124,
       "score": 91,
       "gain_pct": 0.063,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -393,7 +393,7 @@
       "atr_entry": 0.9427,
       "score": 94,
       "gain_pct": 2.807,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -404,7 +404,7 @@
       "status": "open",
       "entry_date": "2026-06-16",
       "entry_price": 47.915,
-      "current_price": 48.77,
+      "current_price": 48.405,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -414,8 +414,8 @@
       "min_price": 47.915,
       "atr_entry": 1.2232,
       "score": 91,
-      "gain_pct": 1.784,
-      "days_held": 6,
+      "gain_pct": 1.023,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -437,7 +437,7 @@
       "atr_entry": 1.723,
       "score": 94,
       "gain_pct": 0.897,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -448,7 +448,7 @@
       "status": "open",
       "entry_date": "2026-06-17",
       "entry_price": 17.134,
-      "current_price": 17.268,
+      "current_price": 17.156,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -457,9 +457,9 @@
       "max_price": 17.462,
       "min_price": 17.134,
       "atr_entry": 0.4031,
-      "score": 91,
-      "gain_pct": 0.782,
-      "days_held": 5,
+      "score": 90,
+      "gain_pct": 0.128,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -481,7 +481,7 @@
       "atr_entry": 1.9111,
       "score": 98,
       "gain_pct": 3.117,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -503,7 +503,7 @@
       "atr_entry": 0.2049,
       "score": 93,
       "gain_pct": 0.577,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -525,7 +525,7 @@
       "atr_entry": 0.0325,
       "score": 92,
       "gain_pct": 0.535,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -547,7 +547,7 @@
       "atr_entry": 0.486,
       "score": 92,
       "gain_pct": 0.62,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -569,7 +569,7 @@
       "atr_entry": 1.0,
       "score": 93,
       "gain_pct": 0.417,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -591,7 +591,7 @@
       "atr_entry": 0.4434,
       "score": 93,
       "gain_pct": 10.029,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": true
     },
     {
@@ -602,7 +602,7 @@
       "status": "open",
       "entry_date": "2026-06-19",
       "entry_price": 2.1425,
-      "current_price": 2.1535,
+      "current_price": 2.153,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -611,9 +611,9 @@
       "max_price": 2.174,
       "min_price": 2.1425,
       "atr_entry": 0.0386,
-      "score": 82,
-      "gain_pct": 0.513,
-      "days_held": 3,
+      "score": 85,
+      "gain_pct": 0.49,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -624,7 +624,7 @@
       "status": "open",
       "entry_date": "2026-06-19",
       "entry_price": 2062.0,
-      "current_price": 2073.5,
+      "current_price": 2070.0,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -633,9 +633,9 @@
       "max_price": 2096.0,
       "min_price": 2062.0,
       "atr_entry": 54.4973,
-      "score": 85,
-      "gain_pct": 0.558,
-      "days_held": 3,
+      "score": 87,
+      "gain_pct": 0.388,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -646,7 +646,7 @@
       "status": "open",
       "entry_date": "2026-06-19",
       "entry_price": 110.6,
-      "current_price": 110.91,
+      "current_price": 111.41,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -655,9 +655,9 @@
       "max_price": 112.01,
       "min_price": 110.6,
       "atr_entry": 2.9418,
-      "score": 91,
-      "gain_pct": 0.28,
-      "days_held": 3,
+      "score": 90,
+      "gain_pct": 0.732,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -679,7 +679,7 @@
       "atr_entry": 2.4262,
       "score": 85,
       "gain_pct": 0.718,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -701,7 +701,7 @@
       "atr_entry": 0.4622,
       "score": 82,
       "gain_pct": 0.656,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -723,7 +723,7 @@
       "atr_entry": 2.0609,
       "score": 86,
       "gain_pct": 0.395,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -734,7 +734,7 @@
       "status": "open",
       "entry_date": "2026-06-19",
       "entry_price": 421.27,
-      "current_price": 421.27,
+      "current_price": 418.56,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -743,9 +743,9 @@
       "max_price": 427.0,
       "min_price": 421.27,
       "atr_entry": 18.2351,
-      "score": 84,
-      "gain_pct": 0.0,
-      "days_held": 3,
+      "score": 86,
+      "gain_pct": -0.643,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -767,7 +767,7 @@
       "atr_entry": 0.6111,
       "score": 78,
       "gain_pct": 0.356,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -778,7 +778,7 @@
       "status": "open",
       "entry_date": "2026-06-22",
       "entry_price": 217.5,
-      "current_price": 214.55,
+      "current_price": 216.8,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -787,9 +787,9 @@
       "max_price": 217.5,
       "min_price": 217.5,
       "atr_entry": 4.9849,
-      "score": 90,
-      "gain_pct": -1.356,
-      "days_held": 0,
+      "score": 92,
+      "gain_pct": -0.322,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -811,7 +811,7 @@
       "atr_entry": 2.9013,
       "score": 85,
       "gain_pct": 0.006,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -833,7 +833,7 @@
       "atr_entry": 1.3656,
       "score": 91,
       "gain_pct": 0.635,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -844,16 +844,60 @@
       "status": "open",
       "entry_date": "2026-06-22",
       "entry_price": 642.44,
-      "current_price": 642.44,
+      "current_price": 689.87,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
       "initial_stop": 528.4678,
-      "current_stop": 528.4678,
-      "max_price": 642.44,
+      "current_stop": 655.3765,
+      "max_price": 689.87,
       "min_price": 642.44,
       "atr_entry": 75.9815,
+      "score": 88,
+      "gain_pct": 7.383,
+      "days_held": 1,
+      "trailing_active": true
+    },
+    {
+      "ticker": "ZINC.MI",
+      "nome": "WisdomTree Zinc",
+      "categoria": "Materie Prime",
+      "direction": "BUY",
+      "status": "open",
+      "entry_date": "2026-06-23",
+      "entry_price": 10.79,
+      "current_price": 10.79,
+      "close_date": null,
+      "close_price": null,
+      "close_reason": null,
+      "initial_stop": 10.5194,
+      "current_stop": 10.5194,
+      "max_price": 10.79,
+      "min_price": 10.79,
+      "atr_entry": 0.1353,
       "score": 85,
+      "gain_pct": 0.0,
+      "days_held": 0,
+      "trailing_active": false
+    },
+    {
+      "ticker": "NGAS.MI",
+      "nome": "WisdomTree Natural Gas",
+      "categoria": "Materie Prime",
+      "direction": "BUY",
+      "status": "open",
+      "entry_date": "2026-06-23",
+      "entry_price": 4.796,
+      "current_price": 4.796,
+      "close_date": null,
+      "close_price": null,
+      "close_reason": null,
+      "initial_stop": 4.4814,
+      "current_stop": 4.4814,
+      "max_price": 4.796,
+      "min_price": 4.796,
+      "atr_entry": 0.1573,
+      "score": 83,
       "gain_pct": 0.0,
       "days_held": 0,
       "trailing_active": false
@@ -863,21 +907,21 @@
       "nome": "WisdomTree Silver 1x Short",
       "categoria": "Short",
       "direction": "BUY",
-      "status": "open",
+      "status": "closed",
       "entry_date": "2026-06-22",
       "entry_price": 1.7908,
-      "current_price": 1.7908,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
+      "current_price": 1.7654,
+      "close_date": "2026-06-23",
+      "close_price": 1.7654,
+      "close_reason": "signal_reversal",
       "initial_stop": 1.6686,
       "current_stop": 1.6686,
       "max_price": 1.7908,
       "min_price": 1.7908,
       "atr_entry": 0.0611,
-      "score": 80,
-      "gain_pct": 0.0,
-      "days_held": 0,
+      "score": 77,
+      "gain_pct": -1.418,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -885,21 +929,21 @@
       "nome": "WisdomTree Copper",
       "categoria": "Materie Prime",
       "direction": "BUY",
-      "status": "open",
+      "status": "closed",
       "entry_date": "2026-06-22",
       "entry_price": 47.855,
-      "current_price": 47.855,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
+      "current_price": 48.24,
+      "close_date": "2026-06-23",
+      "close_price": 48.24,
+      "close_reason": "signal_reversal",
       "initial_stop": 46.2876,
       "current_stop": 46.2876,
-      "max_price": 47.855,
+      "max_price": 48.24,
       "min_price": 47.855,
       "atr_entry": 0.7837,
-      "score": 81,
-      "gain_pct": 0.0,
-      "days_held": 0,
+      "score": 60,
+      "gain_pct": 0.805,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -4157,51 +4201,7 @@
       "gain_pct": -0.799,
       "days_held": 3,
       "trailing_active": false
-    },
-    {
-      "ticker": "ROBO.MI",
-      "nome": "iShares Automation & Robotics UCITS ETF",
-      "categoria": "Tematico",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-06-05",
-      "entry_price": 30.875,
-      "current_price": 29.875,
-      "close_date": "2026-06-08",
-      "close_price": 29.875,
-      "close_reason": "signal_reversal",
-      "initial_stop": 29.7536,
-      "current_stop": 29.7536,
-      "max_price": 30.875,
-      "min_price": 30.875,
-      "atr_entry": 0.5607,
-      "score": 40,
-      "gain_pct": -3.239,
-      "days_held": 3,
-      "trailing_active": false
-    },
-    {
-      "ticker": "XDWT.DE",
-      "nome": "Xtrackers MSCI World IT",
-      "categoria": "Settoriale Mondo",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-06-05",
-      "entry_price": 126.16,
-      "current_price": 122.86,
-      "close_date": "2026-06-08",
-      "close_price": 122.86,
-      "close_reason": "signal_reversal",
-      "initial_stop": 121.3686,
-      "current_stop": 121.3686,
-      "max_price": 126.16,
-      "min_price": 126.16,
-      "atr_entry": 2.3957,
-      "score": 44,
-      "gain_pct": -2.616,
-      "days_held": 3,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-06-22T23:19:06.545927+00:00"
+  "updated": "2026-06-23T05:10:45.480230+00:00"
 }
