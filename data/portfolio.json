@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.579,
-      "days_held": 89,
+      "days_held": 90,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.496,
-      "days_held": 89,
+      "days_held": 90,
       "trailing_active": false
     },
     {
@@ -63,7 +63,7 @@
       "atr_entry": 0.8969,
       "score": 95,
       "gain_pct": 4.754,
-      "days_held": 13,
+      "days_held": 14,
       "trailing_active": true
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 0.4183,
       "score": 95,
       "gain_pct": 2.479,
-      "days_held": 13,
+      "days_held": 14,
       "trailing_active": false
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 1.9572,
       "score": 97,
       "gain_pct": 0.757,
-      "days_held": 8,
+      "days_held": 9,
       "trailing_active": false
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 0.6502,
       "score": 95,
       "gain_pct": 1.561,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 0.3564,
       "score": 93,
       "gain_pct": 4.359,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 0.033,
       "score": 92,
       "gain_pct": 2.24,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -206,7 +206,7 @@
       "status": "open",
       "entry_date": "2026-07-10",
       "entry_price": 79.925,
-      "current_price": 79.98,
+      "current_price": 79.84,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -215,9 +215,9 @@
       "max_price": 80.92,
       "min_price": 79.925,
       "atr_entry": 3.1211,
-      "score": 91,
-      "gain_pct": 0.069,
-      "days_held": 5,
+      "score": 88,
+      "gain_pct": -0.106,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.3099,
       "score": 88,
       "gain_pct": 0.202,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 12.4155,
       "score": 93,
       "gain_pct": 4.338,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.8034,
       "score": 80,
       "gain_pct": 0.042,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 0.3107,
       "score": 83,
       "gain_pct": 0.158,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -327,29 +327,7 @@
       "atr_entry": 0.7518,
       "score": 89,
       "gain_pct": -1.478,
-      "days_held": 1,
-      "trailing_active": false
-    },
-    {
-      "ticker": "AMZ2.L",
-      "nome": "Leverage Shares 2x Amazon",
-      "categoria": "Leva Long",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-07-15",
-      "entry_price": 87.3,
-      "current_price": 88.725,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 83.2149,
-      "current_stop": 83.2149,
-      "max_price": 88.725,
-      "min_price": 87.3,
-      "atr_entry": 2.7234,
-      "score": 90,
-      "gain_pct": 1.632,
-      "days_held": 0,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -371,7 +349,7 @@
       "atr_entry": 0.6066,
       "score": 85,
       "gain_pct": -1.901,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -393,7 +371,7 @@
       "atr_entry": 1.7881,
       "score": 97,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -415,7 +393,7 @@
       "atr_entry": 2.3478,
       "score": 87,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -437,7 +415,7 @@
       "atr_entry": 0.4335,
       "score": 87,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -457,9 +435,9 @@
       "max_price": 126.1105,
       "min_price": 126.1105,
       "atr_entry": 3.0042,
-      "score": 86,
+      "score": 85,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -481,7 +459,29 @@
       "atr_entry": 0.4629,
       "score": 86,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "AMZ2.L",
+      "nome": "Leverage Shares 2x Amazon",
+      "categoria": "Leva Long",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-07-15",
+      "entry_price": 87.3,
+      "current_price": 81.95,
+      "close_date": "2026-07-16",
+      "close_price": 81.95,
+      "close_reason": "stop_loss",
+      "initial_stop": 83.2149,
+      "current_stop": 83.2149,
+      "max_price": 88.725,
+      "min_price": 87.3,
+      "atr_entry": 2.7234,
+      "score": 38,
+      "gain_pct": -6.128,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -3761,29 +3761,7 @@
       "gain_pct": 0.0,
       "days_held": 1,
       "trailing_active": false
-    },
-    {
-      "ticker": "EXV1.DE",
-      "nome": "iShares STOXX Europe 600 Banks",
-      "categoria": "Settoriale Europa",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-07-02",
-      "entry_price": 40.95,
-      "current_price": 40.59,
-      "close_date": "2026-07-02",
-      "close_price": 40.59,
-      "close_reason": "signal_reversal",
-      "initial_stop": 39.7418,
-      "current_stop": 39.7418,
-      "max_price": 41.29,
-      "min_price": 40.95,
-      "atr_entry": 0.6041,
-      "score": 79,
-      "gain_pct": -0.879,
-      "days_held": 0,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-07-15T22:54:42.778986+00:00"
+  "updated": "2026-07-16T04:17:14.772256+00:00"
 }
