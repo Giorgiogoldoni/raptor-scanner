@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.579,
-      "days_held": 90,
+      "days_held": 91,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.499,
-      "days_held": 90,
+      "days_held": 91,
       "trailing_active": false
     },
     {
@@ -63,7 +63,7 @@
       "atr_entry": 0.8969,
       "score": 87,
       "gain_pct": 4.632,
-      "days_held": 14,
+      "days_held": 15,
       "trailing_active": true
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 0.4183,
       "score": 96,
       "gain_pct": 3.154,
-      "days_held": 14,
+      "days_held": 15,
       "trailing_active": true
     },
     {
@@ -118,7 +118,7 @@
       "status": "open",
       "entry_date": "2026-07-07",
       "entry_price": 67.37,
-      "current_price": 74.65,
+      "current_price": 72.455,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -128,8 +128,8 @@
       "min_price": 67.37,
       "atr_entry": 1.9572,
       "score": 97,
-      "gain_pct": 10.806,
-      "days_held": 9,
+      "gain_pct": 7.548,
+      "days_held": 10,
       "trailing_active": true
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 0.6502,
       "score": 93,
       "gain_pct": 2.029,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 0.3564,
       "score": 94,
       "gain_pct": 10.098,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": true
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 0.033,
       "score": 92,
       "gain_pct": 2.818,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -206,7 +206,7 @@
       "status": "open",
       "entry_date": "2026-07-10",
       "entry_price": 79.925,
-      "current_price": 78.195,
+      "current_price": 79.98,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -215,9 +215,9 @@
       "max_price": 80.92,
       "min_price": 79.925,
       "atr_entry": 3.1211,
-      "score": 89,
-      "gain_pct": -2.165,
-      "days_held": 6,
+      "score": 91,
+      "gain_pct": 0.069,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.3099,
       "score": 86,
       "gain_pct": 0.91,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 12.4155,
       "score": 93,
       "gain_pct": 4.323,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": true
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.8034,
       "score": 83,
       "gain_pct": -0.281,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 0.7518,
       "score": 87,
       "gain_pct": -2.583,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 0.6066,
       "score": 82,
       "gain_pct": 0.243,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 1.7881,
       "score": 97,
       "gain_pct": 10.721,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": true
     },
     {
@@ -371,7 +371,7 @@
       "atr_entry": 2.3478,
       "score": 90,
       "gain_pct": 0.354,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -393,7 +393,7 @@
       "atr_entry": 0.4335,
       "score": 91,
       "gain_pct": 0.098,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -415,7 +415,7 @@
       "atr_entry": 0.3213,
       "score": 88,
       "gain_pct": -0.386,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -426,18 +426,18 @@
       "status": "open",
       "entry_date": "2026-07-16",
       "entry_price": 88.65,
-      "current_price": 88.65,
+      "current_price": 88.725,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
       "initial_stop": 84.4869,
       "current_stop": 84.4869,
-      "max_price": 88.65,
+      "max_price": 88.725,
       "min_price": 88.65,
       "atr_entry": 2.7754,
-      "score": 89,
-      "gain_pct": 0.0,
-      "days_held": 0,
+      "score": 90,
+      "gain_pct": 0.085,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -459,7 +459,7 @@
       "atr_entry": 0.4603,
       "score": 82,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -3763,5 +3763,5 @@
       "trailing_active": false
     }
   ],
-  "updated": "2026-07-16T22:54:42.738264+00:00"
+  "updated": "2026-07-17T04:15:49.452591+00:00"
 }
