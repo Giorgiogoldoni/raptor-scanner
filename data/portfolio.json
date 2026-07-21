@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.615,
-      "days_held": 94,
+      "days_held": 95,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.511,
-      "days_held": 94,
+      "days_held": 95,
       "trailing_active": false
     },
     {
@@ -63,7 +63,7 @@
       "atr_entry": 0.8969,
       "score": 87,
       "gain_pct": 3.465,
-      "days_held": 18,
+      "days_held": 19,
       "trailing_active": true
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 1.9572,
       "score": 97,
       "gain_pct": 13.307,
-      "days_held": 13,
+      "days_held": 14,
       "trailing_active": true
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 0.3564,
       "score": 94,
       "gain_pct": 10.696,
-      "days_held": 10,
+      "days_held": 11,
       "trailing_active": true
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 3.1211,
       "score": 36,
       "gain_pct": -5.017,
-      "days_held": 10,
+      "days_held": 11,
       "trailing_active": false
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 0.3099,
       "score": 92,
       "gain_pct": 1.234,
-      "days_held": 10,
+      "days_held": 11,
       "trailing_active": false
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 12.4155,
       "score": 93,
       "gain_pct": 3.794,
-      "days_held": 10,
+      "days_held": 11,
       "trailing_active": true
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 0.7518,
       "score": 92,
       "gain_pct": 0.447,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 1.7881,
       "score": 98,
       "gain_pct": 19.979,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 0.4335,
       "score": 93,
       "gain_pct": 2.988,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.3213,
       "score": 67,
       "gain_pct": 0.772,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 0.0648,
       "score": 94,
       "gain_pct": -1.036,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 2.2733,
       "score": 93,
       "gain_pct": 1.647,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 0.271,
       "score": 85,
       "gain_pct": 0.203,
-      "days_held": 3,
+      "days_held": 4,
       "trailing_active": false
     },
     {
@@ -371,7 +371,7 @@
       "atr_entry": 3.5753,
       "score": 90,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -393,29 +393,7 @@
       "atr_entry": 0.6567,
       "score": 59,
       "gain_pct": 0.82,
-      "days_held": 0,
-      "trailing_active": false
-    },
-    {
-      "ticker": "MSF2.L",
-      "nome": "Leverage Shares 2x Microsoft",
-      "categoria": "Leva Long",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-07-20",
-      "entry_price": 19.6575,
-      "current_price": 19.6575,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 18.6403,
-      "current_stop": 18.6403,
-      "max_price": 19.6575,
-      "min_price": 19.6575,
-      "atr_entry": 0.6781,
-      "score": 76,
-      "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -437,7 +415,7 @@
       "atr_entry": 0.4294,
       "score": 86,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -459,7 +437,29 @@
       "atr_entry": 0.6034,
       "score": 87,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "MSF2.L",
+      "nome": "Leverage Shares 2x Microsoft",
+      "categoria": "Leva Long",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-07-20",
+      "entry_price": 19.6575,
+      "current_price": 18.93,
+      "close_date": "2026-07-21",
+      "close_price": 18.93,
+      "close_reason": "signal_reversal",
+      "initial_stop": 18.6403,
+      "current_stop": 18.6403,
+      "max_price": 19.6575,
+      "min_price": 19.6575,
+      "atr_entry": 0.6781,
+      "score": 45,
+      "gain_pct": -3.701,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -3739,29 +3739,7 @@
       "gain_pct": 0.548,
       "days_held": 0,
       "trailing_active": false
-    },
-    {
-      "ticker": "EXV5.DE",
-      "nome": "iShares STOXX Europe 600 Utilities",
-      "categoria": "Settoriale Europa",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-07-06",
-      "entry_price": 41.775,
-      "current_price": 41.465,
-      "close_date": "2026-07-06",
-      "close_price": 41.465,
-      "close_reason": "signal_reversal",
-      "initial_stop": 40.2394,
-      "current_stop": 40.2394,
-      "max_price": 41.775,
-      "min_price": 41.775,
-      "atr_entry": 0.7678,
-      "score": 77,
-      "gain_pct": -0.742,
-      "days_held": 0,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-07-20T22:52:42.834014+00:00"
+  "updated": "2026-07-21T04:24:57.303273+00:00"
 }
