@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.615,
-      "days_held": 96,
+      "days_held": 97,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.524,
-      "days_held": 96,
+      "days_held": 97,
       "trailing_active": false
     },
     {
@@ -67,28 +67,6 @@
       "trailing_active": true
     },
     {
-      "ticker": "NVD2.L",
-      "nome": "Leverage Shares 2x Nvidia",
-      "categoria": "Leva Long",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-07-10",
-      "entry_price": 79.925,
-      "current_price": 82.175,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 75.2433,
-      "current_stop": 79.925,
-      "max_price": 82.67,
-      "min_price": 79.925,
-      "atr_entry": 3.1211,
-      "score": 92,
-      "gain_pct": 2.815,
-      "days_held": 12,
-      "trailing_active": false
-    },
-    {
       "ticker": "SOYB.MI",
       "nome": "WisdomTree Soybeans",
       "categoria": "Materie Prime",
@@ -107,7 +85,7 @@
       "atr_entry": 0.3099,
       "score": 84,
       "gain_pct": 2.751,
-      "days_held": 12,
+      "days_held": 13,
       "trailing_active": false
     },
     {
@@ -129,7 +107,7 @@
       "atr_entry": 12.4155,
       "score": 93,
       "gain_pct": 4.534,
-      "days_held": 12,
+      "days_held": 13,
       "trailing_active": true
     },
     {
@@ -151,7 +129,7 @@
       "atr_entry": 0.7518,
       "score": 93,
       "gain_pct": 2.384,
-      "days_held": 8,
+      "days_held": 9,
       "trailing_active": false
     },
     {
@@ -173,7 +151,7 @@
       "atr_entry": 0.4335,
       "score": 93,
       "gain_pct": 5.877,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": true
     },
     {
@@ -195,7 +173,7 @@
       "atr_entry": 2.2733,
       "score": 92,
       "gain_pct": 4.688,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -217,7 +195,7 @@
       "atr_entry": 0.271,
       "score": 80,
       "gain_pct": 1.856,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -239,7 +217,7 @@
       "atr_entry": 2.0504,
       "score": 88,
       "gain_pct": 2.777,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -261,7 +239,7 @@
       "atr_entry": 2.0294,
       "score": 88,
       "gain_pct": 1.927,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -283,7 +261,7 @@
       "atr_entry": 1.4084,
       "score": 77,
       "gain_pct": 0.488,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -305,7 +283,7 @@
       "atr_entry": 0.8612,
       "score": 78,
       "gain_pct": 0.59,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -327,7 +305,7 @@
       "atr_entry": 0.5196,
       "score": 78,
       "gain_pct": 0.088,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -349,7 +327,7 @@
       "atr_entry": 3.7058,
       "score": 90,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -371,7 +349,7 @@
       "atr_entry": 0.8448,
       "score": 88,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -393,7 +371,7 @@
       "atr_entry": 0.0459,
       "score": 86,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -415,7 +393,7 @@
       "atr_entry": 0.8897,
       "score": 83,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -437,7 +415,29 @@
       "atr_entry": 0.6444,
       "score": 79,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "NVD2.L",
+      "nome": "Leverage Shares 2x Nvidia",
+      "categoria": "Leva Long",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-07-10",
+      "entry_price": 79.925,
+      "current_price": 77.825,
+      "close_date": "2026-07-23",
+      "close_price": 77.825,
+      "close_reason": "stop_loss",
+      "initial_stop": 75.2433,
+      "current_stop": 79.925,
+      "max_price": 82.67,
+      "min_price": 79.925,
+      "atr_entry": 3.1211,
+      "score": 66,
+      "gain_pct": -2.627,
+      "days_held": 13,
       "trailing_active": false
     },
     {
@@ -3717,29 +3717,7 @@
       "gain_pct": -8.96,
       "days_held": 0,
       "trailing_active": false
-    },
-    {
-      "ticker": "ZINC.MI",
-      "nome": "WisdomTree Zinc",
-      "categoria": "Materie Prime",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-07-07",
-      "entry_price": 10.724,
-      "current_price": 10.788,
-      "close_date": "2026-07-07",
-      "close_price": 10.788,
-      "close_reason": "signal_reversal",
-      "initial_stop": 10.449,
-      "current_stop": 10.449,
-      "max_price": 10.788,
-      "min_price": 10.724,
-      "atr_entry": 0.1375,
-      "score": 73,
-      "gain_pct": 0.597,
-      "days_held": 0,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-07-22T23:00:33.705717+00:00"
+  "updated": "2026-07-23T04:24:43.472867+00:00"
 }
