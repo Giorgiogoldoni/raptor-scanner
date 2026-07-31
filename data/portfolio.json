@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.689,
-      "days_held": 104,
+      "days_held": 105,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.585,
-      "days_held": 104,
+      "days_held": 105,
       "trailing_active": false
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 0.0395,
       "score": 91,
       "gain_pct": 1.881,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 0.1634,
       "score": 87,
       "gain_pct": 1.377,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -118,7 +118,7 @@
       "status": "open",
       "entry_date": "2026-07-28",
       "entry_price": 8500.0,
-      "current_price": 8700.0,
+      "current_price": 8250.0,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -128,8 +128,8 @@
       "min_price": 8500.0,
       "atr_entry": 430.0306,
       "score": 90,
-      "gain_pct": 2.353,
-      "days_held": 2,
+      "gain_pct": -2.941,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 2.0832,
       "score": 89,
       "gain_pct": 0.782,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 0.0243,
       "score": 88,
       "gain_pct": 2.269,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 0.5862,
       "score": 78,
       "gain_pct": -0.547,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 2.5634,
       "score": 83,
       "gain_pct": -0.309,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.8176,
       "score": 85,
       "gain_pct": 0.0,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -261,29 +261,7 @@
       "atr_entry": 0.9605,
       "score": 60,
       "gain_pct": -0.22,
-      "days_held": 0,
-      "trailing_active": false
-    },
-    {
-      "ticker": "MSF2.L",
-      "nome": "Leverage Shares 2x Microsoft",
-      "categoria": "Leva Long",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-07-30",
-      "entry_price": 24.51,
-      "current_price": 23.99,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 23.0388,
-      "current_stop": 23.0388,
-      "max_price": 24.51,
-      "min_price": 24.51,
-      "atr_entry": 0.9808,
-      "score": 89,
-      "gain_pct": -2.122,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -305,7 +283,7 @@
       "atr_entry": 0.2531,
       "score": 97,
       "gain_pct": 4.406,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": true
     },
     {
@@ -327,7 +305,7 @@
       "atr_entry": 2.374,
       "score": 90,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -349,7 +327,7 @@
       "atr_entry": 0.1139,
       "score": 82,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -371,7 +349,7 @@
       "atr_entry": 0.7682,
       "score": 94,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -393,7 +371,7 @@
       "atr_entry": 0.7318,
       "score": 87,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -415,7 +393,7 @@
       "atr_entry": 0.6195,
       "score": 95,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -437,7 +415,7 @@
       "atr_entry": 0.5638,
       "score": 87,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -459,7 +437,7 @@
       "atr_entry": 0.8529,
       "score": 90,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -481,7 +459,7 @@
       "atr_entry": 0.6035,
       "score": 88,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -503,7 +481,7 @@
       "atr_entry": 0.4008,
       "score": 78,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -525,7 +503,7 @@
       "atr_entry": 1.9113,
       "score": 93,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -547,7 +525,7 @@
       "atr_entry": 0.4985,
       "score": 94,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -569,7 +547,29 @@
       "atr_entry": 0.3253,
       "score": 92,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "MSF2.L",
+      "nome": "Leverage Shares 2x Microsoft",
+      "categoria": "Leva Long",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-07-30",
+      "entry_price": 24.51,
+      "current_price": 19.2,
+      "close_date": "2026-07-31",
+      "close_price": 19.2,
+      "close_reason": "signal_reversal",
+      "initial_stop": 23.0388,
+      "current_stop": 23.0388,
+      "max_price": 24.51,
+      "min_price": 24.51,
+      "atr_entry": 0.9808,
+      "score": 45,
+      "gain_pct": -21.665,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -3849,29 +3849,7 @@
       "gain_pct": -0.468,
       "days_held": 0,
       "trailing_active": false
-    },
-    {
-      "ticker": "INFR.MI",
-      "nome": "iShares Global Infrastructure UCITS ETF",
-      "categoria": "Tematico",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-07-14",
-      "entry_price": 34.91,
-      "current_price": 34.535,
-      "close_date": "2026-07-16",
-      "close_price": 34.535,
-      "close_reason": "signal_reversal",
-      "initial_stop": 34.2886,
-      "current_stop": 34.2886,
-      "max_price": 35.0,
-      "min_price": 34.91,
-      "atr_entry": 0.3107,
-      "score": 75,
-      "gain_pct": -1.074,
-      "days_held": 2,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-07-30T23:04:01.535200+00:00"
+  "updated": "2026-07-31T04:31:12.928674+00:00"
 }
