@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.726,
-      "days_held": 110,
+      "days_held": 111,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.622,
-      "days_held": 110,
+      "days_held": 111,
       "trailing_active": false
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 2.5634,
       "score": 92,
       "gain_pct": 2.66,
-      "days_held": 8,
+      "days_held": 9,
       "trailing_active": false
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 0.9605,
       "score": 90,
       "gain_pct": 0.77,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 0.9442,
       "score": 90,
       "gain_pct": 1.276,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 1.8794,
       "score": 92,
       "gain_pct": 2.126,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 1.5784,
       "score": 91,
       "gain_pct": 1.624,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 3.0296,
       "score": 88,
       "gain_pct": 0.372,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 0.3527,
       "score": 87,
       "gain_pct": 0.281,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.4852,
       "score": 88,
       "gain_pct": 0.454,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 0.1072,
       "score": 93,
       "gain_pct": 0.771,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.4119,
       "score": 89,
       "gain_pct": 1.293,
-      "days_held": 2,
+      "days_held": 3,
       "trailing_active": false
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 0.6582,
       "score": 84,
       "gain_pct": 1.818,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 0.5665,
       "score": 86,
       "gain_pct": 0.068,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 0.9396,
       "score": 80,
       "gain_pct": 0.38,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -371,30 +371,8 @@
       "atr_entry": 0.5394,
       "score": 84,
       "gain_pct": 0.286,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
-    },
-    {
-      "ticker": "3LBA.L",
-      "nome": "GraniteShares 3x BAC",
-      "categoria": "Leva Long",
-      "direction": "BUY",
-      "status": "open",
-      "entry_date": "2026-08-04",
-      "entry_price": 9700.0,
-      "current_price": 10050.0,
-      "close_date": null,
-      "close_price": null,
-      "close_reason": null,
-      "initial_stop": 8910.1909,
-      "current_stop": 9880.0,
-      "max_price": 10400.0,
-      "min_price": 9700.0,
-      "atr_entry": 526.5394,
-      "score": 95,
-      "gain_pct": 3.608,
-      "days_held": 1,
-      "trailing_active": true
     },
     {
       "ticker": "MSF2.L",
@@ -404,19 +382,19 @@
       "status": "open",
       "entry_date": "2026-08-05",
       "entry_price": 28.435,
-      "current_price": 29.215,
+      "current_price": 29.95,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
       "initial_stop": 26.7982,
-      "current_stop": 26.7982,
-      "max_price": 29.215,
+      "current_stop": 28.452499999999997,
+      "max_price": 29.95,
       "min_price": 28.435,
       "atr_entry": 1.0912,
       "score": 97,
-      "gain_pct": 2.743,
-      "days_held": 0,
-      "trailing_active": false
+      "gain_pct": 5.328,
+      "days_held": 1,
+      "trailing_active": true
     },
     {
       "ticker": "3USL.MI",
@@ -437,7 +415,7 @@
       "atr_entry": 5.0388,
       "score": 83,
       "gain_pct": -2.355,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -448,18 +426,18 @@
       "status": "open",
       "entry_date": "2026-08-05",
       "entry_price": 101.6,
-      "current_price": 99.7,
+      "current_price": 101.65,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
       "initial_stop": 94.5629,
       "current_stop": 94.5629,
-      "max_price": 101.6,
+      "max_price": 101.65,
       "min_price": 101.6,
       "atr_entry": 4.6914,
-      "score": 85,
-      "gain_pct": -1.87,
-      "days_held": 0,
+      "score": 84,
+      "gain_pct": 0.049,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -481,7 +459,7 @@
       "atr_entry": 5.2376,
       "score": 84,
       "gain_pct": -0.46,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -503,7 +481,7 @@
       "atr_entry": 0.3626,
       "score": 81,
       "gain_pct": -0.03,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -525,7 +503,7 @@
       "atr_entry": 1.0395,
       "score": 88,
       "gain_pct": -1.541,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -547,7 +525,7 @@
       "atr_entry": 1.0535,
       "score": 86,
       "gain_pct": -0.525,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -569,7 +547,7 @@
       "atr_entry": 0.7289,
       "score": 83,
       "gain_pct": -0.063,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -591,7 +569,7 @@
       "atr_entry": 0.9403,
       "score": 84,
       "gain_pct": -0.025,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -613,7 +591,51 @@
       "atr_entry": 11.5625,
       "score": 83,
       "gain_pct": 0.0,
+      "days_held": 1,
+      "trailing_active": false
+    },
+    {
+      "ticker": "3LBA.L",
+      "nome": "GraniteShares 3x BAC",
+      "categoria": "Leva Long",
+      "direction": "BUY",
+      "status": "open",
+      "entry_date": "2026-08-06",
+      "entry_price": 9700.0,
+      "current_price": 9700.0,
+      "close_date": null,
+      "close_price": null,
+      "close_reason": null,
+      "initial_stop": 8937.0247,
+      "current_stop": 8937.0247,
+      "max_price": 9700.0,
+      "min_price": 9700.0,
+      "atr_entry": 508.6502,
+      "score": 92,
+      "gain_pct": 0.0,
       "days_held": 0,
+      "trailing_active": false
+    },
+    {
+      "ticker": "3LBA.L",
+      "nome": "GraniteShares 3x BAC",
+      "categoria": "Leva Long",
+      "direction": "BUY",
+      "status": "closed",
+      "entry_date": "2026-08-04",
+      "entry_price": 9700.0,
+      "current_price": 9700.0,
+      "close_date": "2026-08-06",
+      "close_price": 9700.0,
+      "close_reason": "stop_loss",
+      "initial_stop": 8910.1909,
+      "current_stop": 9880.0,
+      "max_price": 10400.0,
+      "min_price": 9700.0,
+      "atr_entry": 526.5394,
+      "score": 92,
+      "gain_pct": 0.0,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -3893,29 +3915,7 @@
       "gain_pct": -0.654,
       "days_held": 0,
       "trailing_active": false
-    },
-    {
-      "ticker": "XDWU.DE",
-      "nome": "Xtrackers MSCI World Utilities",
-      "categoria": "Settoriale Mondo",
-      "direction": "BUY",
-      "status": "closed",
-      "entry_date": "2026-07-23",
-      "entry_price": 43.53,
-      "current_price": 43.32,
-      "close_date": "2026-07-23",
-      "close_price": 43.32,
-      "close_reason": "signal_reversal",
-      "initial_stop": 42.5772,
-      "current_stop": 42.5772,
-      "max_price": 43.65,
-      "min_price": 43.53,
-      "atr_entry": 0.4764,
-      "score": 56,
-      "gain_pct": -0.482,
-      "days_held": 0,
-      "trailing_active": false
     }
   ],
-  "updated": "2026-08-05T22:54:41.897869+00:00"
+  "updated": "2026-08-06T04:21:49.961377+00:00"
 }
