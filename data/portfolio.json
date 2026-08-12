@@ -19,7 +19,7 @@
       "atr_entry": 0.0425,
       "score": 95,
       "gain_pct": 0.781,
-      "days_held": 116,
+      "days_held": 117,
       "trailing_active": false
     },
     {
@@ -41,7 +41,7 @@
       "atr_entry": 0.0329,
       "score": 95,
       "gain_pct": 0.632,
-      "days_held": 116,
+      "days_held": 117,
       "trailing_active": false
     },
     {
@@ -85,7 +85,7 @@
       "atr_entry": 2.5634,
       "score": 93,
       "gain_pct": 3.088,
-      "days_held": 14,
+      "days_held": 15,
       "trailing_active": true
     },
     {
@@ -107,7 +107,7 @@
       "atr_entry": 0.9442,
       "score": 91,
       "gain_pct": 1.193,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": false
     },
     {
@@ -129,7 +129,7 @@
       "atr_entry": 1.8794,
       "score": 92,
       "gain_pct": 4.842,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": true
     },
     {
@@ -151,7 +151,7 @@
       "atr_entry": 1.5784,
       "score": 92,
       "gain_pct": 0.851,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": false
     },
     {
@@ -173,7 +173,7 @@
       "atr_entry": 3.0296,
       "score": 94,
       "gain_pct": 0.931,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": false
     },
     {
@@ -195,7 +195,7 @@
       "atr_entry": 0.3527,
       "score": 94,
       "gain_pct": 0.805,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": false
     },
     {
@@ -217,7 +217,7 @@
       "atr_entry": 0.4852,
       "score": 93,
       "gain_pct": 1.027,
-      "days_held": 11,
+      "days_held": 12,
       "trailing_active": false
     },
     {
@@ -239,7 +239,7 @@
       "atr_entry": 0.1072,
       "score": 83,
       "gain_pct": 2.204,
-      "days_held": 8,
+      "days_held": 9,
       "trailing_active": false
     },
     {
@@ -261,7 +261,7 @@
       "atr_entry": 0.6582,
       "score": 87,
       "gain_pct": 1.403,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -283,7 +283,7 @@
       "atr_entry": 0.9396,
       "score": 93,
       "gain_pct": 1.39,
-      "days_held": 7,
+      "days_held": 8,
       "trailing_active": false
     },
     {
@@ -305,7 +305,7 @@
       "atr_entry": 1.0912,
       "score": 98,
       "gain_pct": 6.401,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": true
     },
     {
@@ -327,7 +327,7 @@
       "atr_entry": 5.0388,
       "score": 94,
       "gain_pct": -0.497,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -349,7 +349,7 @@
       "atr_entry": 4.6914,
       "score": 93,
       "gain_pct": 1.181,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -371,7 +371,7 @@
       "atr_entry": 5.2376,
       "score": 93,
       "gain_pct": -0.048,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -393,7 +393,7 @@
       "atr_entry": 1.0395,
       "score": 97,
       "gain_pct": 4.545,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": true
     },
     {
@@ -415,7 +415,7 @@
       "atr_entry": 1.0535,
       "score": 87,
       "gain_pct": -0.013,
-      "days_held": 6,
+      "days_held": 7,
       "trailing_active": false
     },
     {
@@ -437,7 +437,7 @@
       "atr_entry": 508.6502,
       "score": 98,
       "gain_pct": 15.979,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -459,7 +459,7 @@
       "atr_entry": 3.0791,
       "score": 81,
       "gain_pct": -1.05,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -481,7 +481,7 @@
       "atr_entry": 0.1548,
       "score": 93,
       "gain_pct": 8.296,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -503,7 +503,7 @@
       "atr_entry": 2.6525,
       "score": 93,
       "gain_pct": 1.074,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -525,7 +525,7 @@
       "atr_entry": 0.9993,
       "score": 92,
       "gain_pct": 1.151,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -547,7 +547,7 @@
       "atr_entry": 3.2544,
       "score": 92,
       "gain_pct": 1.097,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -569,7 +569,7 @@
       "atr_entry": 0.9277,
       "score": 92,
       "gain_pct": 1.007,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": false
     },
     {
@@ -591,7 +591,7 @@
       "atr_entry": 1.9564,
       "score": 94,
       "gain_pct": 3.01,
-      "days_held": 5,
+      "days_held": 6,
       "trailing_active": true
     },
     {
@@ -613,7 +613,7 @@
       "atr_entry": 0.8202,
       "score": 90,
       "gain_pct": 6.188,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": true
     },
     {
@@ -635,7 +635,7 @@
       "atr_entry": 19.7266,
       "score": 91,
       "gain_pct": 0.986,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -657,7 +657,7 @@
       "atr_entry": 3.6112,
       "score": 85,
       "gain_pct": -1.426,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -679,7 +679,7 @@
       "atr_entry": 0.2929,
       "score": 91,
       "gain_pct": 0.143,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -701,7 +701,7 @@
       "atr_entry": 5.9918,
       "score": 89,
       "gain_pct": 0.019,
-      "days_held": 4,
+      "days_held": 5,
       "trailing_active": false
     },
     {
@@ -723,7 +723,7 @@
       "atr_entry": 3.2218,
       "score": 92,
       "gain_pct": -0.903,
-      "days_held": 1,
+      "days_held": 2,
       "trailing_active": false
     },
     {
@@ -745,7 +745,7 @@
       "atr_entry": 1.6007,
       "score": 93,
       "gain_pct": 0.125,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -767,7 +767,7 @@
       "atr_entry": 0.3401,
       "score": 93,
       "gain_pct": -0.096,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -789,7 +789,7 @@
       "atr_entry": 0.9077,
       "score": 36,
       "gain_pct": -0.648,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -811,7 +811,7 @@
       "atr_entry": 0.4307,
       "score": 79,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -833,7 +833,7 @@
       "atr_entry": 0.3194,
       "score": 79,
       "gain_pct": 0.0,
-      "days_held": 0,
+      "days_held": 1,
       "trailing_active": false
     },
     {
@@ -4137,5 +4137,5 @@
       "trailing_active": false
     }
   ],
-  "updated": "2026-08-11T22:38:44.722770+00:00"
+  "updated": "2026-08-12T03:31:34.752488+00:00"
 }
