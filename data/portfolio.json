@@ -536,7 +536,7 @@
       "status": "open",
       "entry_date": "2026-09-21",
       "entry_price": 88.605,
-      "current_price": 88.605,
+      "current_price": 84.705,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -545,8 +545,8 @@
       "max_price": 88.605,
       "min_price": 88.605,
       "atr_entry": 3.7607,
-      "score": 83,
-      "gain_pct": 0.0,
+      "score": 67,
+      "gain_pct": -4.402,
       "days_held": 1,
       "trailing_active": false
     },
@@ -3917,5 +3917,5 @@
       "trailing_active": false
     }
   ],
-  "updated": "2026-09-22T00:29:22.552360+00:00"
+  "updated": "2026-09-22T06:02:51.979828+00:00"
 }
