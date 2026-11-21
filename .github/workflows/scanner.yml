@@ -57,7 +57,7 @@ jobs:
           git diff --staged --quiet && { echo "Nessuna modifica da pubblicare"; exit ; }
           git commit -m "🤖 Scanner update $(date -u '+%Y-%m-%d %H:%M UTC')"|| true
           for i in 1 2 3 4 5; do
-            git pull --rebase --autostash-X theirs origin main || { git rebase --abort 2>/dev/null || true; sleep 3; continue; }
+            git pull --rebase --autostash -X theirs origin main || { git rebase --abort 2>/dev/null || true; sleep 3; continue; }
             git push origin HEAD:main && { echo "Push riuscito (tentativo $i)"; exit 0; }
             sleep $((i*5))
           done
