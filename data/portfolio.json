@@ -30,17 +30,17 @@
       "status": "open",
       "entry_date": "2026-04-17",
       "entry_price": 148.9094,
-      "current_price": 150.9182,
+      "current_price": 150.9259,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
       "initial_stop": 148.8436,
       "current_stop": 148.8436,
-      "max_price": 150.9182,
+      "max_price": 150.9259,
       "min_price": 148.9094,
       "atr_entry": 0.0329,
       "score": 75,
-      "gain_pct": 1.349,
+      "gain_pct": 1.354,
       "days_held": 223,
       "trailing_active": false
     },
@@ -162,7 +162,7 @@
       "status": "open",
       "entry_date": "2026-10-30",
       "entry_price": 5.066,
-      "current_price": 5.421,
+      "current_price": 5.425,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -172,7 +172,7 @@
       "min_price": 5.066,
       "atr_entry": 0.0427,
       "score": 94,
-      "gain_pct": 7.008,
+      "gain_pct": 7.086,
       "days_held": 27,
       "trailing_active": true
     },
@@ -294,7 +294,7 @@
       "status": "open",
       "entry_date": "2026-11-25",
       "entry_price": 55.16,
-      "current_price": 55.05,
+      "current_price": 55.08,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -304,7 +304,7 @@
       "min_price": 55.16,
       "atr_entry": 0.8108,
       "score": 86,
-      "gain_pct": -0.199,
+      "gain_pct": -0.145,
       "days_held": 1,
       "trailing_active": false
     },
@@ -360,7 +360,7 @@
       "status": "open",
       "entry_date": "2026-11-26",
       "entry_price": 2.824,
-      "current_price": 2.7695,
+      "current_price": 2.782,
       "close_date": null,
       "close_price": null,
       "close_reason": null,
@@ -370,7 +370,7 @@
       "min_price": 2.824,
       "atr_entry": 0.0936,
       "score": 99,
-      "gain_pct": -1.93,
+      "gain_pct": -1.487,
       "days_held": 0,
       "trailing_active": false
     },
@@ -3697,5 +3697,5 @@
       "trailing_active": false
     }
   ],
-  "updated": "2026-11-26T09:20:41.118421+00:00"
+  "updated": "2026-11-26T09:29:41.233555+00:00"
 }
